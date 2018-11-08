@@ -1,6 +1,15 @@
 import * as React from 'react'
-import {IconBtn, withGlobalProgress, withToast} from 'react-components'
-import {Checkbox, createStyles, Icon, Menu, MenuItem, Theme, WithStyles, withStyles} from '@material-ui/core'
+import {
+  Checkbox,
+  createStyles,
+  Icon,
+  IconButton,
+  Menu,
+  MenuItem,
+  Theme,
+  WithStyles,
+  withStyles
+} from '@material-ui/core'
 import autobind from 'autobind-decorator'
 import {datatableConsumer, IDatatableContext} from '../Datatable'
 
@@ -30,11 +39,11 @@ class DatatableColumnsFilter extends React.Component<IProps> {
     const {columns, isColumnVisible, classes} = this.props
     return (
       <div>
-        <IconBtn onClick={this.open}>
+        <IconButton onClick={this.open}>
           {/*<Badge badgeContent="1" classes={{badge: this.allColumnsHidden() ? classes.hiddenBadge : ''}} color="primary">*/}
           <Icon>remove_red_eye</Icon>
           {/*</Badge>*/}
-        </IconBtn>
+        </IconButton>
         <Menu
           anchorEl={this.state.anchorEl}
           open={!!this.state.anchorEl}

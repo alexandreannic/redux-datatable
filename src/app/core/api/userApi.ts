@@ -36,8 +36,6 @@ const userFilter = (c: UserCriteria) => (data: IUser[]): IUser[] => {
 }
 
 const sortedData = <T>(sortBy: string, orderBy: OrderByType) => (data: T[]): T[] => {
-  return data.sort((a, b) => {
-    console.log('sort', a[sortBy], b[sortBy])
-    return (a[sortBy] < b[sortBy] ? -1 : 1) * (orderBy === 'asc' ? 1 : -1)
-  })
+  console.log('sort', sortBy, orderBy)
+  return data.sort((a, b) => (a[sortBy] < b[sortBy] ? -1 : 1) * (orderBy === 'asc' ? 1 : -1))
 }

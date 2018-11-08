@@ -1,13 +1,13 @@
 import {applyMiddleware, combineReducers, compose, createStore} from 'redux'
 import thunk from 'redux-thunk'
 import {IUser} from '../type/user'
-import {USERS} from './userAction'
+import {SIMPLE_DATATABLE} from './userAction'
 import datatableReducer from '../../../lib/Datatable/redux/datatableReducer'
 
 export const store = createStore(
   combineReducers({
     paginate: combineReducers({
-      users: datatableReducer<IUser>(USERS),
+      [SIMPLE_DATATABLE]: datatableReducer<IUser>(SIMPLE_DATATABLE),
     }),
   }),
   compose(
