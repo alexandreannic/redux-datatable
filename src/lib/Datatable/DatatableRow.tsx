@@ -22,7 +22,7 @@ const styles = (t: Theme) => createStyles({
   root: {
     transition: t.transitions.create('all'),
     opacity: 0,
-    transform: 'translate(60px, 60px)',
+    transform: 'translate(0, 60px)',
   },
   root_appeared: {
     opacity: 1,
@@ -78,6 +78,7 @@ class DatatableRow extends React.Component<IProps & ReturnType<typeof state2prop
               {expendedChild}
             </CardContent>
             <CardActions>
+              {/*TODO Variablize close label*/}
               <Button color="primary" variant="outlined" onClick={this.toggle}>Close</Button>
             </CardActions>
           </TableCell>

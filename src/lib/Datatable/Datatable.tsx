@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {ReactChild, ReactElement} from 'react'
-import {Table, TableFooter, TablePagination, TableRow} from '@material-ui/core'
+import {Table, TableBody, TablePagination, TableRow} from '@material-ui/core'
 import autobind from 'autobind-decorator'
 import {connect} from 'react-redux'
 import {Criteria, OrderByType} from '../type/criteria'
@@ -8,7 +8,6 @@ import {PaginateAction, RootState} from './redux/datatableAction'
 import {LocalStorageEntity} from '../utils/localStorage'
 
 const DatatableContext = React.createContext({})
-
 export const datatableConsumer = <P extends object>(
   Component: React.ComponentType<P & IDatatableContext>
 ): React.SFC<any> => (props: Pick<P, Exclude<keyof P, keyof IDatatableContext>>) => (
@@ -20,8 +19,9 @@ export const datatableConsumer = <P extends object>(
 interface IProps {
   name: string
   action: (c?: Criteria) => (dispatch, getState: () => RootState) => Promise<any>
-  dispatch: any
+  dispatch?: any
   children: Array<ReactElement<any>>
+  toolbar?: ReactElement<any>
   onSelect?: (indexes: number[]) => void
 }
 
@@ -65,23 +65,30 @@ class Datatable extends React.Component<IProps & ReturnType<typeof state2props>,
   }
 
   render() {
-    const {children, criteria, size, page} = this.props
+    const {children, toolbar, criteria, size, page} = this.props
     return (
       <DatatableContext.Provider value={this.state}>
-        <Table style={{borderCollapse: 'initial' /* Fix bug when apply transform on <tr> */}}>
-          {children}
-          <TableFooter>
-            <TableRow>
-              <TablePagination
-                count={size || 0}
-                rowsPerPage={criteria.limit}
-                page={page}
-                onChangePage={this.handleChangePage}
-                onChangeRowsPerPage={this.handleChangeRowsPerPage}
-              />
-            </TableRow>
-          </TableFooter>
-        </Table>
+        <>
+          {toolbar}
+          <div style={{overflowX: 'auto', overflowY: 'hidden', width: '100%'}}>
+            <Table style={{borderCollapse: 'initial' /* Fix bug when apply transform on <tr> */}}>
+              {children}
+            </Table>
+          </div>
+          <Table>
+            <TableBody>
+              <TableRow>
+                <TablePagination
+                  count={size || 0}
+                  rowsPerPage={criteria.limit}
+                  page={page}
+                  onChangePage={this.handleChangePage}
+                  onChangeRowsPerPage={this.handleChangeRowsPerPage}
+                />
+              </TableRow>
+            </TableBody>
+          </Table>
+        </>
       </DatatableContext.Provider>
     )
   }

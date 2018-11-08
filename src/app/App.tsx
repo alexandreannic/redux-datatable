@@ -12,6 +12,10 @@ import {IUser} from './core/type/user'
 import DatatableRow from '../lib/Datatable/DatatableRow'
 
 const styles = (t: Theme) => createStyles({
+  root: {
+    maxWidth: 1000,
+    margin: '30px auto',
+  },
   claimed: {
     color: 'green',
   },
@@ -31,15 +35,15 @@ const actions = new PaginateAction<IUser>(paginateName, paginateAction)
 class Users extends React.Component<IProps & ReturnType<typeof dispatch2props>, {}> {
 
   render() {
+    const {classes} = this.props
     return (
-      <>
+      <div className={classes.root}>
         <Card>
           <Datatable
-            dispatch={() => {}}
+            toolbar={<DatatableToolbar search="global_search"/>}
             name={paginateName}
             action={paginateAction}
             onSelect={console.log}>
-            <DatatableToolbar search="global_search"/>
             <DatatableHead>
               <TableSortCell name="created_at">Date</TableSortCell>
               <TableSortCell name="first_name">First name</TableSortCell>
@@ -51,7 +55,7 @@ class Users extends React.Component<IProps & ReturnType<typeof dispatch2props>, 
             <DatatableBody renderRow={this.renderRow}/>
           </Datatable>
         </Card>
-      </>
+      </div>
     )
   }
 
@@ -60,7 +64,7 @@ class Users extends React.Component<IProps & ReturnType<typeof dispatch2props>, 
     const {classes} = this.props
     return (
       <DatatableRow expendedChild={this.renderExpendedRow(u)}>
-        <TableCell>{u.created_at}</TableCell>
+        <TableCell>{new Date(u.created_at).toLocaleDateString()}</TableCell>
         <TableCell>{u.first_name}</TableCell>
         <TableCell>{u.last_name}</TableCell>
         <TableCell>{u.email}</TableCell>
