@@ -23,6 +23,12 @@ const styles = (t: Theme) => createStyles({
   },
   hiddenBadge: {
     display: 'none',
+  },
+  menuItem: {
+    paddingTop: t.spacing.unit,
+    paddingRight: t.spacing.unit,
+    paddingBottom: t.spacing.unit,
+    paddingLeft: 0,
   }
 })
 
@@ -50,7 +56,7 @@ class DatatableColumnsFilter extends React.Component<IProps> {
           onClose={this.close}
         >
           {columns.map((c, i) =>
-            <MenuItem key={i} onClick={this.pick(i)}>
+            <MenuItem key={i} onClick={this.pick(i)} className={classes.menuItem}>
               <Checkbox checked={isColumnVisible(i)}/>
               {c.label}
             </MenuItem>

@@ -5,5 +5,7 @@ export interface UserCriteria extends Criteria {
   firstName?: string
   lastName?: string
   email?: string
-  has_been_claimed?: boolean
+  validated?: boolean
+  scoreMin?: number
+  scoreMax?: number
 }

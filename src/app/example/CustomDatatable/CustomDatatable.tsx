@@ -1,6 +1,6 @@
 import * as React from 'react'
-import {MenuItem, Select, TableCell, TableRow} from '@material-ui/core'
-import {Datatable, DatatableBody, DatatableHead} from '../../../lib/Datatable/index'
+import {Checkbox, createStyles, Icon, TableCell, TableRow, Theme, withStyles, WithStyles} from '@material-ui/core'
+import {Datatable, DatatableBody, DatatableHead, DatatableToolbar} from '../../../lib/Datatable/index'
 import {TableSortCell} from 'react-components'
 import {IUser, UserGender} from '../../core/type/user'
 import DatatableRow from '../../../lib/Datatable/DatatableRow'
@@ -16,59 +16,82 @@ const dispatch2props = (dispatch: any) => ({
   updateCriteria: (name: string, value: any) => dispatch(paginateAction.updateCriteria(name, value)),
 })
 
-const CustomDatatable = connect(null, dispatch2props)(({updateCriteria}: ReturnType<typeof dispatch2props>) => {
+interface IProps extends WithStyles<typeof styles>, ReturnType<typeof dispatch2props> {
+}
 
+const styles = (t: Theme) => createStyles({
+  input: {
+    height: 28,
+    width: '100%',
+    border: 'none',
+    background: t.palette.background.default,
+    borderRadius: 4,
+    paddingRight: t.spacing.unit,
+    paddingLeft: t.spacing.unit,
+  },
+  filterCell: {
+    paddingTop: 0,
+    paddingBottom: 0,
+  }
+})
+
+const CustomDatatable = ({updateCriteria, classes}: IProps) => {
   const update = (name: string) => (event) => updateCriteria(name, event.target.value)
-
-  // @ts-ignore
-  const [gender, setGender] = React.useState('')
-
   return (
-    <Datatable name={EXPENDABLE_DATATABLE} action={action}>
+    <Datatable
+      name={EXPENDABLE_DATATABLE}
+      action={action}
+      toolbar={
+        <DatatableToolbar search="global_search">
+          Coucou
+        </DatatableToolbar>
+      }>
       <DatatableHead>
-        <TableSortCell name="createdAt">Date</TableSortCell>
-        <TableSortCell name="gender">First name</TableSortCell>
+        <TableSortCell name="gender">Gender</TableSortCell>
         <TableSortCell name="lastName">Last name</TableSortCell>
-        <TableSortCell name="status">Validated</TableSortCell>
         <TableSortCell name="score">Score</TableSortCell>
+        <TableSortCell name="status">Status</TableSortCell>
       </DatatableHead>
       <DatatableBody renderRow={renderRow}>
         <TableRow>
-          <TableCell>
-          </TableCell>
-          <TableCell>
-            <Select value={gender} onChange={(e) => {update('gender')(e), setGender(e.target.value)}}>
-              <MenuItem/>
+          <TableCell className={classes.filterCell}>
+            <select onChange={update('gender')} className={classes.input} placeholder="Gender">
+              <option/>
               {Object.keys(UserGender).map(k =>
-                <MenuItem key={k} value={k}>{UserGender[k]}</MenuItem>
+                <option key={k} value={k}>{UserGender[k]}</option>
               )}
-            </Select>
+            </select>
           </TableCell>
-          <TableCell>
-            <input onChange={update('lastName')}/>
+          <TableCell className={classes.filterCell}>
+            <input onChange={update('lastName')} className={classes.input} placeholder="Last name"/>
           </TableCell>
-          <TableCell>
+          <TableCell className={classes.filterCell}>
+            <div style={{display: 'flex'}}>
+              <input onChange={update('scoreMin')} className={classes.input} style={{width: 40}} placeholder="Min"/>
+              &nbsp;
+              <input onChange={update('scoreMax')} className={classes.input} style={{width: 40}} placeholder="Max"/>
+            </div>
           </TableCell>
-          <TableCell>
+          <TableCell className={classes.filterCell}>
+            <Checkbox onChange={(e, checked) => updateCriteria('validated', checked)} style={{width: 24}}/>
           </TableCell>
         </TableRow>
       </DatatableBody>
     </Datatable>
   )
-})
+}
 
 const renderRow = (u: IUser) => {
   return (
     <DatatableRow>
-      <TableCell>{new Date(u.createdAt).toLocaleDateString()}</TableCell>
       <TableCell>{u.gender}</TableCell>
       <TableCell>{u.lastName}</TableCell>
-      <TableCell>{u.score}</TableCell>
+      <TableCell numeric>{u.score}</TableCell>
       <TableCell>
-        {u.status}
+        {u.validated ? <Icon style={{color: 'green'}}>check</Icon> : <Icon style={{color: 'red'}}>block</Icon>}
       </TableCell>
     </DatatableRow>
   )
 }
 
-export default CustomDatatable
+export default withStyles(styles)(connect(null, dispatch2props)(CustomDatatable))

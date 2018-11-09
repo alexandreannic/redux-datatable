@@ -8,7 +8,7 @@ export interface IUser extends IEntity {
   email?: string
   phone?: string
   avatar?: string
-  status?: UserStatus
+  validated?: boolean
   score?: number
   nationality?: string
 }
@@ -17,14 +17,3 @@ export enum UserGender {
   MAN = 'Man',
   WOMAN = 'Woman',
 }
-
-export enum UserStatus {
-  VALIDATED = 'Validated',
-  BLOCKED = 'Blocked',
-  WAITING = 'Waiting',
-}
-// const UserStatus = {
-//   VALIDATED : 'Validated',
-//   BLOCKED : 'Blocked',
-//   WAITING : 'Waiting',
-// }

@@ -1,4 +1,4 @@
-import {IUser, UserGender, UserStatus} from '../../type/user'
+import {IUser, UserGender} from '../../type/user'
 
 export const users: IUser[] = [{
   'id': '60a37303-4fa2-4f19-8456-7f4c02c2048d',
@@ -9,13 +9,13 @@ export const users: IUser[] = [{
   'firstName': 'Scott',
   'lastName': 'Weir',
   'phone': '+14039745397',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': '3a742dca-1e62-4c53-8b17-ecbdd341f42c',
   'score': 3,
   'createdAt': '2018-10-24T08:25:00Z',
   'email': 'test.ip@particeep.com',
-  'status': UserStatus.VALIDATED,
+  'validated': true,
   'gender': UserGender.MAN,
 }, {
   'id': '22ce4a75-e1be-4890-b8ad-5b2df01c545b',
@@ -26,7 +26,7 @@ export const users: IUser[] = [{
   'firstName': 'James',
   'lastName': 'Lodge',
   'phone': '+971529061372',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': '05c72950-bef8-4c9b-9381-9a5a4c15cfe5',
   'score': 0,
@@ -36,7 +36,7 @@ export const users: IUser[] = [{
   'firstName': 'mnejja',
   'lastName': 'anis',
   'phone': '+33630997418',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': 'a6d7d7c8-5b4c-42fe-8e52-c36df6d1838d',
   'score': 14,
@@ -46,7 +46,7 @@ export const users: IUser[] = [{
   'firstName': 'YANLIN',
   'lastName': 'QU',
   'phone': '+33664973861',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': 'b99efdad-3c17-48be-802a-49f11da8fe71',
   'score': 17,
@@ -56,13 +56,13 @@ export const users: IUser[] = [{
   'firstName': 'tes',
   'lastName': 'test',
   'phone': '+33987653211',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': 'e319cab1-6af8-408d-b4ec-0250a331e966',
   'score': 11,
   'createdAt': '2018-10-11T16:39:14Z',
   'email': 'k.bennour@outlook.fr',
-  'status': UserStatus.VALIDATED,
+  'validated': true,
   'gender': UserGender.MAN,
 }, {
   'id': 'b2ac4498-c644-4d5b-8ca0-9f5d175477b9',
@@ -73,13 +73,13 @@ export const users: IUser[] = [{
   'firstName': 'sign',
   'lastName': 'sign',
   'phone': '+33670684711',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': 'a5504c93-ad86-4e4c-933d-d80b0a734e37',
   'score': 14,
   'createdAt': '2018-10-03T18:24:07Z',
   'email': 'isacc.mn@gmail.com',
-  'status': UserStatus.BLOCKED,
+  'validated': false,
   'gender': UserGender.MAN,
 }, {
   'id': 'e17bc824-86e9-44c7-8a83-2b0687d9dace',
@@ -90,7 +90,7 @@ export const users: IUser[] = [{
   'firstName': 'feae',
   'lastName': 'feafea',
   'phone': '+33987654321',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': '6b3e9fb6-7a55-436e-a70e-a0874313d0f6',
   'score': 6,
@@ -100,7 +100,7 @@ export const users: IUser[] = [{
   'firstName': 'faredj',
   'lastName': 'hammache',
   'phone': '+33781425052',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': '7cc09939-8400-4971-aab3-30163442a641',
   'score': 7,
@@ -110,7 +110,7 @@ export const users: IUser[] = [{
   'firstName': 'casena',
   'lastName': 'casena',
   'phone': '+50939088888',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': '161bfb52-135a-4d85-ac38-2038c9c7b9b0',
   'score': 1,
@@ -120,7 +120,7 @@ export const users: IUser[] = [{
   'firstName': 'John',
   'lastName': 'Smart',
   'phone': '+2626920000',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': 'f30687b2-5698-4a6e-b846-8acb8430f1bd',
   'score': 18,
@@ -130,20 +130,20 @@ export const users: IUser[] = [{
   'firstName': 'Pablo',
   'lastName': 'Montes',
   'phone': '+525510076571',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': '949819e3-f3fe-462f-bf5e-d9d57469799b',
   'score': 9,
   'createdAt': '2018-09-12T12:23:49Z',
   'email': 'testparticeep4@gmail.com',
-  'status': UserStatus.VALIDATED,
+  'validated': true,
   'gender': UserGender.MAN,
 }, {
   'id': 'b533c615-3ed3-4e33-b933-741a2ac053db',
   'score': 17,
   'createdAt': '2018-09-12T10:08:35Z',
   'email': 'partner.particeep@gmail.com',
-  'status': UserStatus.VALIDATED,
+  'validated': true,
   'gender': UserGender.MAN,
 }, {
   'id': '9590ac67-50e2-4329-a68a-915e48b4599f',
@@ -154,20 +154,20 @@ export const users: IUser[] = [{
   'firstName': 'Nicolas',
   'lastName': 'ORO',
   'phone': '+33628474839',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': 'f2881cfc-af74-48a7-b2f3-2825411d4643',
   'score': 21,
   'createdAt': '2018-09-05T12:56:06Z',
   'email': 'gez@gea.xx',
-  'status': UserStatus.BLOCKED,
+  'validated': false,
   'gender': UserGender.MAN,
 }, {
   'id': '2909e43d-5d0d-4936-b032-82937f200973',
   'score': 2,
   'createdAt': '2018-08-30T00:15:00Z',
   'email': 'sotiricj7@aol.com',
-  'status': UserStatus.VALIDATED,
+  'validated': true,
   'gender': UserGender.MAN,
 }, {
   'id': 'be46ca15-f13b-4f5a-9994-76d257c9189d',
@@ -178,13 +178,13 @@ export const users: IUser[] = [{
   'firstName': 'jean',
   'lastName': 'patoulatchi',
   'phone': '+33191902022',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': '2a3a3d6f-2ba0-4060-9fcf-9e7df83d48fd',
   'score': 2,
   'createdAt': '2018-08-27T15:34:24Z',
   'email': 'alexe.annic1@gmail.com',
-  'status': UserStatus.BLOCKED,
+  'validated': false,
   'gender': UserGender.MAN,
 }, {
   'id': 'e26a2de5-1e9b-48a9-a3df-2c8ff28e3870',
@@ -195,7 +195,7 @@ export const users: IUser[] = [{
   'firstName': 'gea',
   'lastName': 'geagae',
   'phone': '+33987654321',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': 'da238a02-b058-494d-90c2-0f90c30b5926',
   'score': 20,
@@ -204,7 +204,7 @@ export const users: IUser[] = [{
   'gender': UserGender.MAN,
   'firstName': 'bodmer',
   'lastName': 'Pierre',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': 'bdbc6200-666b-482e-ad00-86f73a036119',
   'score': 17,
@@ -213,7 +213,7 @@ export const users: IUser[] = [{
   'gender': UserGender.MAN,
   'firstName': '22222',
   'lastName': '11111',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': '15150973-51df-4d96-947d-dd17fe88fae3',
   'score': 1,
@@ -222,13 +222,13 @@ export const users: IUser[] = [{
   'gender': UserGender.MAN,
   'firstName': 'bbbbb',
   'lastName': 'aaaaa',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': 'c732d761-b500-4d54-89a6-7b53c305134a',
   'score': 19,
   'createdAt': '2018-08-20T15:53:37Z',
   'email': 'thucngdg@gmail.com',
-  'status': UserStatus.BLOCKED,
+  'validated': false,
   'gender': UserGender.MAN,
 }, {
   'id': '73d30914-b7ec-4a9f-b682-0b10a9176a7b',
@@ -239,7 +239,7 @@ export const users: IUser[] = [{
   'firstName': 'Aliou',
   'lastName': 'Dia',
   'phone': '+1123456789',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': 'ed5fa8c6-eaf8-4678-a98d-e499cf69fbe3',
   'score': 11,
@@ -249,7 +249,7 @@ export const users: IUser[] = [{
   'firstName': 'gea',
   'lastName': 'gea',
   'phone': '+33987654321',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': '9bda0d32-0237-43ed-b16b-4f3bbc64a27c',
   'score': 9,
@@ -259,7 +259,7 @@ export const users: IUser[] = [{
   'firstName': 'vdq',
   'lastName': 'dqbd',
   'phone': '+33987654321',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': '251c0706-ef3b-4e6b-918a-f15d6267f909',
   'score': 2,
@@ -269,13 +269,13 @@ export const users: IUser[] = [{
   'firstName': 'geage',
   'lastName': 'geagae',
   'phone': '+33987654321',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': 'f284ea0f-dfbf-43e4-a0e2-1271ad40fae8',
   'score': 24,
   'createdAt': '2018-08-13T18:19:25Z',
   'email': '2018bbusiness@gmail.com',
-  'status': UserStatus.BLOCKED,
+  'validated': false,
   'gender': UserGender.MAN,
 }, {
   'id': '0d4c57c8-ae63-4858-9e47-f5ae95b574a4',
@@ -286,7 +286,7 @@ export const users: IUser[] = [{
   'firstName': 'YANLIN',
   'lastName': 'QU',
   'phone': '+33664973861',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': '14ce8525-732a-4769-a901-413c3221ffde',
   'score': 1,
@@ -295,7 +295,7 @@ export const users: IUser[] = [{
   'gender': UserGender.WOMAN,
   'firstName': 'cacola',
   'lastName': 'miko',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': '1422d867-e479-492c-a0cc-070228af92b0',
   'score': 1,
@@ -305,7 +305,7 @@ export const users: IUser[] = [{
   'firstName': 'Benjamin',
   'lastName': 'Pavard',
   'phone': '+33667521050',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': '89b000b0-0994-416b-a7e6-1a1e26db8cda',
   'score': 8,
@@ -315,7 +315,7 @@ export const users: IUser[] = [{
   'firstName': 'Maxime',
   'lastName': 'hum',
   'phone': '+33667521050',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': '5b3f746e-685a-475d-82d7-33b6a895731a',
   'score': 5,
@@ -325,7 +325,7 @@ export const users: IUser[] = [{
   'firstName': 'macdo ',
   'lastName': 'nals',
   'phone': '+33667521050',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': 'a5e3701a-94a7-4b7f-bafb-8f2ddec4c837',
   'score': 14,
@@ -335,7 +335,7 @@ export const users: IUser[] = [{
   'firstName': 'YANLIN',
   'lastName': 'QU',
   'phone': '+33664973861',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': 'ae9c11e5-65fa-4f0f-b77f-b2af8b65e90c',
   'score': 15,
@@ -345,13 +345,13 @@ export const users: IUser[] = [{
   'firstName': 'yanlin',
   'lastName': 'qu',
   'phone': '+33664973861',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': 'd7e81cca-e350-41c1-8cc9-6d604ab731a6',
   'score': 19,
   'createdAt': '2018-07-24T14:30:31Z',
   'email': 'pierre.bodmer-le-lay@particeep.com',
-  'status': UserStatus.VALIDATED,
+  'validated': true,
   'gender': UserGender.MAN,
 }, {
   'id': 'fba1518e-cecf-40fe-944d-97b775881f95',
@@ -361,13 +361,13 @@ export const users: IUser[] = [{
   'gender': UserGender.WOMAN,
   'firstName': 'hilde',
   'lastName': 'brune',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': 'e4391cc3-c295-47cf-bc80-538042cc1ce2',
   'score': 10,
   'createdAt': '2018-07-23T15:22:58Z',
   'email': 'joxatulowi@nickrizos.com',
-  'status': UserStatus.BLOCKED,
+  'validated': false,
   'gender': UserGender.MAN,
 }, {
   'id': '4a79a8d5-bf0f-4a73-8274-5460a31395ab',
@@ -377,7 +377,7 @@ export const users: IUser[] = [{
   'gender': UserGender.MAN,
   'firstName': 'defregtr',
   'lastName': 'defrgt',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': 'af42ed8d-5605-4074-8cf4-fa83c818ed40',
   'score': 16,
@@ -387,7 +387,7 @@ export const users: IUser[] = [{
   'firstName': 'minute ',
   'lastName': 'maid',
   'phone': '+33667521050',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': 'b407d1e1-4458-413e-b0e8-afe9f7e7db36',
   'score': 17,
@@ -397,20 +397,20 @@ export const users: IUser[] = [{
   'firstName': 'Noé',
   'lastName': 'Lasne',
   'phone': '+33670684711',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': 'fb69e716-5909-4607-8323-876a55d75886',
   'score': 16,
   'createdAt': '2018-07-16T09:06:40Z',
   'email': 'jeandupont@par.com',
-  'status': UserStatus.BLOCKED,
+  'validated': false,
   'gender': UserGender.MAN,
 }, {
   'id': '518d5f14-b229-412b-a53b-6ee2d94742b7',
   'score': 5,
   'createdAt': '2018-07-13T16:04:11Z',
   'email': 'zdzadzd@dza.fr',
-  'status': UserStatus.BLOCKED,
+  'validated': false,
   'gender': UserGender.MAN,
 }, {
   'id': 'd999cb83-ae29-4dfa-9a30-677aa53e4623',
@@ -421,7 +421,7 @@ export const users: IUser[] = [{
   'firstName': 'grzgrz',
   'lastName': 'grzgrz',
   'phone': '+33987654321',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': '37b0eeb7-f6cc-44cb-8256-6118d19a4528',
   'score': 3,
@@ -431,7 +431,7 @@ export const users: IUser[] = [{
   'firstName': 'vqsVQD',
   'lastName': 'ghjkl',
   'phone': '+33987654321',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': '8556fa40-88e4-425e-a073-af95d84bb9a1',
   'score': 8,
@@ -441,7 +441,7 @@ export const users: IUser[] = [{
   'firstName': 'pierre',
   'lastName': 'kiroule',
   'phone': '+331234567890',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': 'a95e0efc-5da6-41e3-b3ae-af9211377d9b',
   'score': 13,
@@ -450,7 +450,7 @@ export const users: IUser[] = [{
   'gender': UserGender.MAN,
   'firstName': 'Pierre',
   'lastName': 'Afeu',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': '67acd1f7-76a7-45bd-9ece-55b0067852bd',
   'score': 6,
@@ -460,7 +460,7 @@ export const users: IUser[] = [{
   'firstName': 'gea',
   'lastName': 'geagea',
   'phone': '+33987654321',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': 'aaa9e86a-1c98-45d3-a85f-735e23cc2b03',
   'score': 11,
@@ -470,7 +470,7 @@ export const users: IUser[] = [{
   'firstName': 'Michael',
   'lastName': 'sou',
   'phone': '+33667521050',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': 'a08cf577-ec48-47a7-80c9-835c6e186042',
   'score': 18,
@@ -480,7 +480,7 @@ export const users: IUser[] = [{
   'firstName': 'Kasper',
   'lastName': 'Vancoppenolle',
   'phone': '+32494690358',
-  'status': UserStatus.VALIDATED,
+  'validated': true,
   'nationality': 'EN'
 }, {
   'id': '063bdb95-b631-4c63-b807-4552a2597def',
@@ -491,7 +491,7 @@ export const users: IUser[] = [{
   'firstName': 'nqnfq',
   'lastName': 'zhrz',
   'phone': '+33987654321',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': '6f2eccce-c609-41ff-9f05-37501d3c720f',
   'score': 6,
@@ -502,7 +502,7 @@ export const users: IUser[] = [{
   'lastName': 'Dupert',
   'phone': '+33695031571',
   'nationality': 'FR',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': 'f7a18e4a-7093-4828-86c5-58db167192cd',
   'score': 15,
@@ -513,7 +513,7 @@ export const users: IUser[] = [{
   'lastName': 'Wright',
   'phone': '+33695031571',
   'nationality': 'FR',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': '811f1989-e008-4057-b601-025189bfc0b7',
   'score': 8,
@@ -524,7 +524,7 @@ export const users: IUser[] = [{
   'lastName': 'Warren',
   'phone': '+33695031571',
   'nationality': 'FR',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': 'fc5a8228-1794-4b10-98c3-099539f6ce90',
   'score': 12,
@@ -535,7 +535,7 @@ export const users: IUser[] = [{
   'lastName': 'Frichti',
   'phone': '+33695031571',
   'nationality': 'FR',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': '008d3bbb-08d5-4f44-b31d-4ec8f41348f9',
   'score': 0,
@@ -546,7 +546,7 @@ export const users: IUser[] = [{
   'lastName': 'Hawk',
   'phone': '+33695031571',
   'nationality': 'FR',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': '59f64ee8-6403-4db1-a749-12098f198dbf',
   'score': 5,
@@ -557,7 +557,7 @@ export const users: IUser[] = [{
   'lastName': 'Desgens',
   'phone': '+33695031571',
   'nationality': 'FR',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': '57ae85da-0486-443e-8751-77cc67852530',
   'score': 5,
@@ -568,7 +568,7 @@ export const users: IUser[] = [{
   'lastName': 'Metaux',
   'phone': '+33695031571',
   'nationality': 'FR',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': 'c8aeb7e0-0e98-41e0-a092-1d156341bb52',
   'score': 13,
@@ -579,7 +579,7 @@ export const users: IUser[] = [{
   'lastName': 'Chandelier',
   'phone': '+33695031571',
   'nationality': 'FR',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': '0f4e898e-0dd4-47d7-87a5-9df51e517e30',
   'score': 0,
@@ -590,7 +590,7 @@ export const users: IUser[] = [{
   'lastName': 'Marron',
   'phone': '+33695031571',
   'nationality': 'FR',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': 'f7ba99f8-601b-41c2-b9c4-fe069b522ecb',
   'score': 19,
@@ -601,13 +601,13 @@ export const users: IUser[] = [{
   'lastName': 'Debride',
   'phone': '+33695031571',
   'nationality': 'FR',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': '2f33b9e4-35a3-4e40-8d7b-c755cb33bb2b',
   'score': 2,
   'createdAt': '2018-06-27T08:24:45Z',
   'email': 'sam@idexcel.com',
-  'status': UserStatus.BLOCKED,
+  'validated': false,
   'gender': UserGender.MAN,
 }, {
   'id': '13435565-1bec-4a87-8169-4549c55efd60',
@@ -618,7 +618,7 @@ export const users: IUser[] = [{
   'firstName': 'Charles',
   'lastName': 'Beaufils',
   'phone': '+33667521050',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': 'cb17a412-9c20-4d29-9a66-175a10f451f8',
   'score': 18,
@@ -628,7 +628,7 @@ export const users: IUser[] = [{
   'firstName': 'Fabrice',
   'lastName': 'LOLLIA',
   'phone': '+33690398616',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': '6826d8f6-ae62-489b-9d74-77ab2c910971',
   'score': 6,
@@ -638,7 +638,7 @@ export const users: IUser[] = [{
   'firstName': 'wak',
   'lastName': 'frf',
   'phone': '+33667521050',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': '01373c58-c975-4145-b810-f955841688c2',
   'score': 0,
@@ -648,7 +648,7 @@ export const users: IUser[] = [{
   'firstName': 'Michael',
   'lastName': 'sou',
   'phone': '+33667521050',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': '4e4537a5-c4a9-42be-901a-7b8ca6e511a4',
   'score': 4,
@@ -658,13 +658,13 @@ export const users: IUser[] = [{
   'firstName': 'Yong',
   'lastName': 'Chung',
   'phone': '+1821099535789',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': '042d4656-ae7f-4883-aad4-ce2ec80c8cd9',
   'score': 0,
   'createdAt': '2018-06-15T16:20:06Z',
   'email': 'steve.ross@fsg.financial',
-  'status': UserStatus.BLOCKED,
+  'validated': false,
   'gender': UserGender.MAN,
 }, {
   'id': '996405de-3bee-414b-aa51-070de39770dd',
@@ -675,7 +675,7 @@ export const users: IUser[] = [{
   'firstName': 'hrz',
   'lastName': 'gez',
   'phone': '+33987654321',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': '39ad3654-87bd-409c-a94d-8f5a53de65d1',
   'score': 3,
@@ -685,7 +685,7 @@ export const users: IUser[] = [{
   'firstName': 'Ik',
   'lastName': 'Kk',
   'phone': '+33071425866',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': '36b27ca7-50a7-4fb4-8453-738a399eaa67',
   'score': 3,
@@ -695,27 +695,27 @@ export const users: IUser[] = [{
   'firstName': 'grz',
   'lastName': 'gegz',
   'phone': '+33987654321',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': '26f977bc-74fa-481e-844c-d65ab51b98ab',
   'score': 2,
   'createdAt': '2018-06-15T12:01:39Z',
   'email': 'terttttst@test.fr',
-  'status': UserStatus.BLOCKED,
+  'validated': false,
   'gender': UserGender.MAN,
 }, {
   'id': '58e51450-e7d0-4101-bb73-c383331edaf2',
   'score': 5,
   'createdAt': '2018-06-14T12:30:28Z',
   'email': 'adminaap@paRRRRrticeep.com',
-  'status': UserStatus.BLOCKED,
+  'validated': false,
   'gender': UserGender.MAN,
 }, {
   'id': 'ad6dcaea-05a9-42b3-8eb6-78fb02bf3445',
   'score': 11,
   'createdAt': '2018-06-14T08:12:02Z',
   'email': 'geaeagae@iii.fr',
-  'status': UserStatus.BLOCKED,
+  'validated': false,
   'gender': UserGender.MAN,
 }, {
   'id': '1fec869d-1f1a-4ab5-8354-80de67f22e17',
@@ -726,7 +726,7 @@ export const users: IUser[] = [{
   'firstName': 'Michael',
   'lastName': 'sourignanh',
   'phone': '+33667521050',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': '169ce8d2-dc53-4dfd-9b85-ddaa1bf987ed',
   'score': 1,
@@ -736,13 +736,13 @@ export const users: IUser[] = [{
   'firstName': 'Charles',
   'lastName': 'Beaufils',
   'phone': '+33667521050',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': '2f6acc19-8069-4988-9f73-ddb4dcf46fa2',
   'score': 2,
   'createdAt': '2018-06-11T15:13:37Z',
   'email': 'ggeagea@gaga.fr',
-  'status': UserStatus.BLOCKED,
+  'validated': false,
   'gender': UserGender.MAN,
 }, {
   'id': 'd566e3b6-4488-44b3-be1c-69ddf0c24ba4',
@@ -753,7 +753,7 @@ export const users: IUser[] = [{
   'firstName': 'ZIZOU',
   'lastName': 'à Paris ',
   'phone': '+11234567890',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': '53da307b-4ed4-48fd-a7b8-fcf92817d55f',
   'score': 5,
@@ -763,7 +763,7 @@ export const users: IUser[] = [{
   'firstName': 'TU-PREND-TES-CLACS',
   'lastName': 'TU-PREND-TES-CLICS',
   'phone': '+541234567890',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': 'cc89a5bd-44a2-4ae6-8ad8-cf8b3a81fbb9',
   'score': 19,
@@ -773,7 +773,7 @@ export const users: IUser[] = [{
   'lastName': 'Doe',
   'phone': '102030405',
   'nationality': 'FR',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': '35e67151-3db0-47a8-8d49-617cdc8b416c',
   'score': 3,
@@ -782,7 +782,7 @@ export const users: IUser[] = [{
   'firstName': 'bla',
   'lastName': 'bla',
   'phone': '+33670684711',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': 'c60b14de-0cde-446f-be41-0c4b1edc9a91',
   'score': 16,
@@ -790,7 +790,7 @@ export const users: IUser[] = [{
   'gender': UserGender.MAN,
   'firstName': 'bla',
   'lastName': 'bla',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': '240f81a0-a74f-4510-93fc-13c04e758732',
   'score': 2,
@@ -799,7 +799,7 @@ export const users: IUser[] = [{
   'gender': UserGender.MAN,
   'firstName': 'sourignanh',
   'lastName': 'michael',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': 'd7ef5120-e748-4e18-9430-574ac4ec90bd',
   'score': 19,
@@ -809,7 +809,7 @@ export const users: IUser[] = [{
   'firstName': 'youpi',
   'lastName': 'oui',
   'phone': 'blabla',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': '21235d84-a5ab-4359-ad2e-cb73bfee344a',
   'score': 2,
@@ -819,7 +819,7 @@ export const users: IUser[] = [{
   'firstName': 'RAYMOND',
   'lastName': 'MAURUS',
   'phone': '+33659879652',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': '8db3a277-6757-4bed-9131-ca6d9e5ca5da',
   'score': 8,
@@ -828,13 +828,13 @@ export const users: IUser[] = [{
   'gender': UserGender.MAN,
   'firstName': 'Noé',
   'lastName': 'LEGRAND',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': 'e39320d4-0726-4ccf-a46e-628b1774504a',
   'score': 11,
   'createdAt': '2018-05-30T14:50:27Z',
   'email': 'yanlin@particeep.com',
-  'status': UserStatus.BLOCKED,
+  'validated': false,
   'gender': UserGender.MAN,
 }, {
   'id': '56735675-83d5-4e49-93b5-51d866e7629d',
@@ -845,7 +845,7 @@ export const users: IUser[] = [{
   'firstName': 'Michael',
   'lastName': 'Sourignanh',
   'phone': '+331234567890',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': 'ac46eac6-e25f-450b-a7b5-a8be322df300',
   'score': 14,
@@ -855,13 +855,13 @@ export const users: IUser[] = [{
   'firstName': 'gea',
   'lastName': 'gea',
   'phone': '+33987654321',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': '9790d3c7-4588-46d5-b8e9-2267b0115ba6',
   'score': 9,
   'createdAt': '2018-05-30T12:12:52Z',
   'email': 'ooo@pppp.qq',
-  'status': UserStatus.BLOCKED,
+  'validated': false,
   'gender': UserGender.MAN,
 }, {
   'id': '8c9a8cd2-b64c-41bb-8e66-7aeb08316c2c',
@@ -872,7 +872,7 @@ export const users: IUser[] = [{
   'firstName': 'ge',
   'lastName': 'gea',
   'phone': '+33111111111',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': 'eeb2e478-35d3-4b01-b356-4d5d44b1814d',
   'score': 14,
@@ -882,7 +882,7 @@ export const users: IUser[] = [{
   'firstName': 'geg',
   'lastName': 'geaa',
   'phone': '+33987654321',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': '92b5edc3-240f-4c97-a3a5-cf8cbfb33c98',
   'score': 9,
@@ -891,7 +891,7 @@ export const users: IUser[] = [{
   'gender': UserGender.WOMAN,
   'firstName': 'Bug',
   'lastName': 'Lissa',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': '065c0b38-e430-47dc-b71b-61b35c94e7ad',
   'score': 0,
@@ -901,7 +901,7 @@ export const users: IUser[] = [{
   'firstName': 'ichael',
   'lastName': 'sour',
   'phone': '+331234567890',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }, {
   'id': '1ebff512-0343-4741-b742-999a2d588377',
   'score': 1,
@@ -911,13 +911,13 @@ export const users: IUser[] = [{
   'firstName': 'Noé',
   'lastName': 'Lasne',
   'phone': '+33670684711',
-  'status': UserStatus.BLOCKED
+  'validated': false
 }, {
   'id': '5b8d1658-227d-4ce1-9a02-2d795ba83fad',
   'score': 5,
   'createdAt': '2018-05-25T08:20:53Z',
   'email': 'test.partner3000@particeep.com',
-  'status': UserStatus.VALIDATED,
+  'validated': true,
   'gender': UserGender.MAN,
 }, {
   'id': 'a47fce1b-c669-44ee-b1be-6b3c9ce5c92f',
@@ -928,5 +928,5 @@ export const users: IUser[] = [{
   'firstName': 'jean-michael',
   'lastName': 'ycre',
   'phone': '1234567890',
-  'status': UserStatus.VALIDATED
+  'validated': true
 }]

@@ -5,7 +5,6 @@ import {IPagination} from '../../../lib/type/paginated'
 import {IUser} from '../type/user'
 import {compose} from 'redux'
 
-
 export const userApi = (c: UserCriteria): IPagination<IUser> => {
   return {
     total_size: users.length,
@@ -31,12 +30,15 @@ const paginate = <T>(limit: number, offset: number) => (data: T[]): T[] => {
 const userFilter = (c: UserCriteria) => (data: IUser[]): IUser[] => {
   const contains = (name: string) => (u: IUser): boolean => !(c[name] && (!u[name] || u[name].toLowerCase().indexOf(c[name].toLowerCase()) === -1))
   const equals = (name: string) => (u: IUser): boolean => !(c[name] && (!u[name] || u[name].toLowerCase() !== c[name].toLowerCase()))
-  return data.filter(u => contains('firstName')(u)
-    && equals('gender')(u)
-    && contains('lastName')(u)
-    && contains('phone')(u)
-    && contains('status')(u)
-    // && c.has_been_claimed === undefined || (u.has_been_claimed !== undefined && u.has_been_claimed === c.has_been_claimed)
+  return data.filter(u =>
+    equals('gender')(u) &&
+    contains('firstName')(u) &&
+    contains('lastName')(u) &&
+    contains('phone')(u) &&
+    contains('status')(u) &&
+    (!c.scoreMin || +c.scoreMin <= +u.score) &&
+    (!c.scoreMax || +c.scoreMax >= +u.score) &&
+    (c.validated === undefined || u.validated === c.validated)
   )
 }
 

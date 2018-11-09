@@ -31,7 +31,7 @@ const renderRow = (u: IUser) => {
       <TableCell>{u.lastName}</TableCell>
       <TableCell>{u.phone}</TableCell>
       <TableCell>
-        {u.status}
+        {u.validated ? <Icon style={{color: 'green'}}>check</Icon> : <Icon style={{color: 'red'}}>block</Icon>}
       </TableCell>
     </DatatableRow>
   )
