@@ -65,7 +65,19 @@ class Sidebar extends React.Component<IProps, {}> {
           <SidebarHr/>
           <main className={classes.main}>
             <SidebarItem to={basePath + 'home'} icon="home">
-              Simple Data table
+              Home
+            </SidebarItem>
+            <SidebarItem to={basePath + 'simple'}>
+              Simple Datatable
+            </SidebarItem>
+            <SidebarItem to={basePath + 'toolbar'}>
+              Toolbar Datatable
+            </SidebarItem>
+            <SidebarItem to={basePath + 'expendable'}>
+              Expendable Datatable
+            </SidebarItem>
+            <SidebarItem to={basePath + 'custom'}>
+              Custom Datatable
             </SidebarItem>
           </main>
           <SidebarHr/>

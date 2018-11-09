@@ -27,8 +27,8 @@ class DatatableHead extends React.Component<IProps & ReturnType<typeof state2pro
     return (
       <TableSort
         className={classes.root}
-        sortBy={criteria.sort_by!}
-        orderBy={criteria.order_by!}
+        sortBy={criteria.sortBy!}
+        orderBy={criteria.orderBy!}
         onSort={this.handleSortChange!}>
         {onSelect &&
         <TableSortCell>

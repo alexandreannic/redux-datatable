@@ -1,21 +1,21 @@
 import * as React from 'react'
 import {Icon, TableCell} from '@material-ui/core'
-import {fetchUsers} from '../../core/redux/userAction'
 import {Datatable, DatatableBody, DatatableHead} from '../../../lib/Datatable/index'
 import {TableSortCell} from 'react-components'
 import {IUser} from '../../core/type/user'
 import DatatableRow from '../../../lib/Datatable/DatatableRow'
+import {fetchUsers} from '../../core/redux/userAction'
 
-export const SIMPLE_DATATABLE = 'simpleDatatable'
+export const EXPENDABLE_DATATABLE = 'expendableDatatable'
 
-const SimpleDatatable = () => {
+const ExpendableDatatable = () => {
   return (
-    <Datatable name={SIMPLE_DATATABLE} action={fetchUsers(SIMPLE_DATATABLE)}>
+    <Datatable name={EXPENDABLE_DATATABLE} action={fetchUsers(EXPENDABLE_DATATABLE)}>
       <DatatableHead>
         <TableSortCell name="createdAt">Date</TableSortCell>
         <TableSortCell name="firstName">First name</TableSortCell>
         <TableSortCell name="lastName">Last name</TableSortCell>
-        <TableSortCell name="score">Score</TableSortCell>
+        <TableSortCell name="phone">Phone</TableSortCell>
         <TableSortCell name="status">Status</TableSortCell>
       </DatatableHead>
       <DatatableBody renderRow={renderRow}/>
@@ -25,11 +25,11 @@ const SimpleDatatable = () => {
 
 const renderRow = (u: IUser) => {
   return (
-    <DatatableRow>
+    <DatatableRow expendRow={ExpendedRow(u)}>
       <TableCell>{new Date(u.createdAt).toLocaleDateString()}</TableCell>
       <TableCell>{u.firstName}</TableCell>
       <TableCell>{u.lastName}</TableCell>
-      <TableCell>{u.score}</TableCell>
+      <TableCell>{u.phone}</TableCell>
       <TableCell>
         {u.status}
       </TableCell>
@@ -37,4 +37,10 @@ const renderRow = (u: IUser) => {
   )
 }
 
-export default SimpleDatatable
+const ExpendedRow = (u: IUser) => {
+  return (
+    <div>{u.firstName}</div>
+  )
+}
+
+export default ExpendableDatatable

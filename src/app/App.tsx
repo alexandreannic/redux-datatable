@@ -7,6 +7,9 @@ import SidebarLayout from './core/component/Sidebar/SidebarLayout'
 import {ReactElement} from 'react'
 import {Redirect, Route, RouteComponentProps, Switch, withRouter} from 'react-router'
 import {css} from './core/theme/style'
+import {ToolbarDatatableDoc} from './example/ToolbarDatatable/ToolbarDatatableDoc'
+import {ExpendableDatatableDoc} from './example/ExpendableDatatable/ExpendableDatatableDoc'
+import {CustomDatatableDoc} from './example/CustomDatatable/CustomDatatableDoc'
 
 const styles = (t: Theme) => createStyles({
   '@global': {
@@ -33,6 +36,9 @@ export const App = withStyles(styles)(withRouter(({classes, match}: IProps): Rea
       <Switch>
         <Route path={route('home')} component={SimpleDatatableDoc}/>
         <Route path={route('simple')} component={SimpleDatatableDoc}/>
+        <Route path={route('toolbar')} component={ToolbarDatatableDoc}/>
+        <Route path={route('expendable')} component={ExpendableDatatableDoc}/>
+        <Route path={route('custom')} component={CustomDatatableDoc}/>
         <Redirect exact from={route('')} to={route('home')}/>
       </Switch>
     </SidebarLayout>

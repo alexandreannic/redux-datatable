@@ -4,11 +4,9 @@ import {IPagination} from '../../../lib/type/paginated'
 import {IUser} from '../type/user'
 import {userApi} from '../api/userApi'
 
-export const SIMPLE_DATATABLE = 'simpleDatatable'
 
-const _USERS = _PAGINATE(SIMPLE_DATATABLE)
-
-export const fetchUsers = (criteria?: Criteria,) => (dispatch, getState: () => RootState): Promise<IPagination<IUser>> => {
+export const fetchUsers = (datatableName: string) => (criteria?: Criteria,) => (dispatch, getState: () => RootState): Promise<IPagination<IUser>> => {
+  const _USERS = _PAGINATE(datatableName)
   dispatch({type: _USERS.REQUEST})
   return new Promise((resolve) => {
     const data: IPagination<IUser> = userApi(criteria)

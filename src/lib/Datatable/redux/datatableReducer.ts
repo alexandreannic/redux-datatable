@@ -18,7 +18,7 @@ const defaultState: IPaginateState<any> = {
   isFetching: false,
   entities: undefined,
   total_size: undefined,
-  criteria: {limit: 10, offset: 0, order_by: 'asc'},
+  criteria: {limit: 10, offset: 0, orderBy: 'asc'},
   error: undefined,
 }
 
@@ -79,8 +79,8 @@ const sort = <T>(state: IPaginateState<T>, action) => ({
   ...state,
   criteria: {
     ...state.criteria,
-    sort_by: action.sortBy,
-    order_by: action.orderBy,
+    sortBy: action.sortBy,
+    orderBy: action.orderBy,
   },
 })
 

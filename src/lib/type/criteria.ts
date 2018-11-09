@@ -1,8 +1,8 @@
 export type OrderByType = 'asc' | 'desc';
 
 export interface SortCiteria {
-  sort_by?: string;
-  order_by?: OrderByType;
+  sortBy?: string;
+  orderBy?: OrderByType;
 }
 
 export interface PaginateCriteria {
