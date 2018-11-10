@@ -14,9 +14,9 @@ interface IProps extends IDatatableContext {
 class DatatableBody extends React.Component<IProps & ReturnType<typeof state2props>> {
 
   render() {
-    const {children, isColumnVisible, renderRow, selected, data, onSelect} = this.props
+    const {children, isFetching, isColumnVisible, renderRow, selected, data, onSelect} = this.props
     return (
-      <TableBody>
+      <TableBody style={{...(isFetching && {opacity: .4, pointerEvents: 'none'})}}>
         {children}
         {data ? data.map((d, i) => {
           const row = renderRow(d)
@@ -51,6 +51,7 @@ class DatatableBody extends React.Component<IProps & ReturnType<typeof state2pro
 const state2props = (state: RootState, ownProps: IProps) => {
   const paginateState = state.paginate[ownProps.name]
   return {
+    isFetching: paginateState.isFetching,
     data: paginateState.entities,
   }
 }

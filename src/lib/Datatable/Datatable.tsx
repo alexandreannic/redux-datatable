@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {ReactChild, ReactElement} from 'react'
-import {Table, TableBody, TablePagination, TableRow} from '@material-ui/core'
+import {LinearProgress, Table, TableBody, TablePagination, TableRow} from '@material-ui/core'
 import autobind from 'autobind-decorator'
 import {connect} from 'react-redux'
 import {Criteria, OrderByType} from '../type/criteria'
@@ -65,12 +65,13 @@ class Datatable extends React.Component<IProps & ReturnType<typeof state2props>,
   }
 
   render() {
-    const {children, toolbar, criteria, size, page} = this.props
+    const {children, isFetching, toolbar, criteria, size, page} = this.props
     return (
       <DatatableContext.Provider value={this.state}>
         <>
           {toolbar}
-          <div style={{overflowX: 'auto', overflowY: 'hidden', width: '100%'}}>
+          <div style={{overflowX: 'auto', overflowY: 'hidden', width: '100%', position: 'relative'}}>
+            {isFetching && <LinearProgress style={{position: 'absolute', top: 0, left: 0, right: 0}}/>}
             <Table style={{borderCollapse: 'initial' /* Fix bug when apply transform on <tr> */}}>
               {children}
             </Table>
