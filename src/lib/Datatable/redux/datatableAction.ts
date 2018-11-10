@@ -24,7 +24,7 @@ export const _PAGINATE = (name: string) => ({
 export class PaginateAction<T> {
 
   constructor(private name: string,
-              private action: (c?: Criteria) => (dispatch, getState: () => RootState) => Promise<IPagination<T>>) {
+              private action: (c?: Criteria) => (dispatch, getState: () => RootState) => any) {
   }
 
   nextPage = () => (dispatch, getState: () => RootState) => {

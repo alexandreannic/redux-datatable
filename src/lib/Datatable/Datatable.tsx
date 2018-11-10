@@ -18,7 +18,7 @@ export const datatableConsumer = <P extends object>(
 
 interface IProps {
   name: string
-  action: (c?: Criteria) => (dispatch, getState: () => RootState) => Promise<any>
+  action: (c?: Criteria) => (dispatch, getState: () => RootState) => void
   dispatch?: any
   children: Array<ReactElement<any>>
   toolbar?: ReactElement<any>
@@ -101,7 +101,7 @@ class Datatable extends React.Component<IProps & ReturnType<typeof state2props>,
   private async search() {
     const {dispatch, criteria, action} = this.props
     // TODO Handle progress and error
-    dispatch(action(criteria)).catch(err => console.error(err.msg))
+    dispatch(action(criteria))
   }
 
   @autobind

@@ -42,9 +42,7 @@ const CustomDatatable = ({updateCriteria, classes}: IProps) => {
       name={EXPENDABLE_DATATABLE}
       action={action}
       toolbar={
-        <DatatableToolbar search="global_search">
-          Coucou
-        </DatatableToolbar>
+        <DatatableToolbar search="global_search"/>
       }>
       <DatatableHead>
         <TableSortCell name="gender">Gender</TableSortCell>
