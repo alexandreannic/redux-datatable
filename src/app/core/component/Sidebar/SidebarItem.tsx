@@ -36,7 +36,7 @@ const styles = (t: Theme) => createStyles({
   },
   i: {
     textAlign: 'center',
-    marginRight: t.spacing.unit * 3,
+    marginRight: t.spacing.unit * 2,
   },
   label: {
     ...css.noWrap,
@@ -58,7 +58,7 @@ class SidebarItem extends React.Component<IProps & any, any> {
     const {classes, href, to, children, icon, ...other} = this.props
     const item = (
       <>
-        <Icon className={classes.i}>{icon}</Icon>
+        {icon && <Icon className={classes.i}>{icon}</Icon>}
         <span className={classes.label}>{children}</span>
       </>
     )

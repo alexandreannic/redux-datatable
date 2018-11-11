@@ -12,7 +12,7 @@ export const fetchUsers = (datatableName: string) => (criteria?: UserCriteria,) 
     const data: IPagination<IUser> = userApi(criteria)
     setTimeout(() => {
       dispatch({type: _USERS.SUCCESS, data})
-    }, 400)
+    }, 240)
     resolve(data)
   })
 }

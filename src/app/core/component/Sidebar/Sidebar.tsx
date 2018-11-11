@@ -23,12 +23,6 @@ const styles = (t: Theme) => createStyles({
     // borderRight: `1px solid ${t.palette.divider}`,
     borderRadius: 0,
   },
-  head: {
-    textAlign: 'center',
-    paddingTop: t.spacing.unit * 2,
-    paddingBottom: t.spacing.unit,
-    display: 'block',
-  },
   main: {
     paddingTop: t.spacing.unit,
     paddingBottom: t.spacing.unit,
@@ -60,13 +54,11 @@ class Sidebar extends React.Component<IProps, {}> {
     return (
       <Slide direction="right" in={true} mountOnEnter unmountOnExit>
         <Paper elevation={4} className={classes.root}>
-          <header className={classes.head}>
-          </header>
-          <SidebarHr/>
           <main className={classes.main}>
             <SidebarItem to={basePath + 'home'} icon="home">
               Home
             </SidebarItem>
+            <SidebarHr margin/>
             <SidebarItem to={basePath + 'simple'}>
               Simple Datatable
             </SidebarItem>

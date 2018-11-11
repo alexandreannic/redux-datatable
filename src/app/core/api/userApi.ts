@@ -28,16 +28,16 @@ const paginate = <T>(limit: number, offset: number) => (data: T[]): T[] => {
 }
 
 const userFilter = (c: UserCriteria) => (data: IUser[]): IUser[] => {
-  const contains = (name: string) => (u: IUser): boolean => !(c[name] && (!u[name] || u[name].toLowerCase().indexOf(c[name].toLowerCase()) === -1))
-  const equals = (name: string) => (u: IUser): boolean => !(c[name] && (!u[name] || u[name].toLowerCase() !== c[name].toLowerCase()))
+  const contains = (name: string) => (u: IUser): boolean => c[name] === undefined || u[name].toLowerCase().indexOf(c[name].toLowerCase()) === -1
+  const equals = (name: string) => (u: IUser): boolean => c[name] === undefined || u[name].toLowerCase() !== c[name].toLowerCase()
   return data.filter(u =>
     equals('gender')(u) &&
     contains('firstName')(u) &&
     contains('lastName')(u) &&
     contains('phone')(u) &&
     contains('status')(u) &&
-    (!c.scoreMin || +c.scoreMin <= +u.score) &&
-    (!c.scoreMax || +c.scoreMax >= +u.score) &&
+    (c.scoreMin === undefined || +c.scoreMin <= +u.score) &&
+    (c.scoreMax === undefined || +c.scoreMax >= +u.score) &&
     (c.validated === undefined || u.validated === c.validated)
   )
 }
