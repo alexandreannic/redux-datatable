@@ -3,16 +3,25 @@
     "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": false,
-    "skipLibCheck": true,
-    "module": "commonjs",
     "experimentalDecorators": true,
+    "allowJs": true,
+    "skipLibCheck": false,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
     "lib": [
       "es2015",
       "es2017",
       "dom"
     ],
     "target": "es5",
-    "jsx": "react"
+    "jsx": "preserve"
   },
   "include": [
     "./src/**/*"
