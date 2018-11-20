@@ -5,22 +5,25 @@ import {IPagination} from '../../../../src/type/paginated'
 import {IUser} from '../type/user'
 import {compose} from 'redux'
 
-export const userApi = (c: UserCriteria): IPagination<IUser> => {
+export const getUserFromApi = (c?: UserCriteria): Promise<IPagination<IUser>> => {
+  return new Promise((resolve) => setTimeout(() => resolve(getUsers(c)), 220))
+}
+
+const getUsers = (c?: UserCriteria): IPagination<IUser> => {
   return {
     total_size: users.length,
-    data: compose(
+    data: c ? compose(
       paginate<IUser>(c.limit, c.offset),
       sort<IUser>(c.sortBy, c.orderBy),
       globalSearchFilter<IUser>(c.global_search),
       userFilter(c),
-    )(users)
+    )(users) : users
   }
 }
 
 const globalSearchFilter = <T>(global_search?: string) => (data: T[]): T[] => {
-  if (global_search)
-    return data.filter(d => Object.values(d).join('').toLowerCase().indexOf(global_search.toLowerCase()) >= 0)
-  return data
+  if (!global_search) return data
+  return data.filter(d => Object.values(d).join('').toLowerCase().indexOf(global_search.toLowerCase()) >= 0)
 }
 
 const paginate = <T>(limit: number, offset: number) => (data: T[]): T[] => {
@@ -28,7 +31,7 @@ const paginate = <T>(limit: number, offset: number) => (data: T[]): T[] => {
 }
 
 const userFilter = (c: UserCriteria) => (data: IUser[]): IUser[] => {
-  const contains = (name: string) => (u: IUser): boolean => c[name] === undefined || u[name].toLowerCase().indexOf(c[name].toLowerCase()) === -1
+  const contains = (name: string) => (u: IUser): boolean => c[name] === undefined || c[name] === '' || u[name].toLowerCase().indexOf(c[name].toLowerCase()) === -1
   const equals = (name: string) => (u: IUser): boolean => c[name] === undefined || u[name].toLowerCase() !== c[name].toLowerCase()
   return data.filter(u =>
     equals('gender')(u) &&
@@ -42,6 +45,7 @@ const userFilter = (c: UserCriteria) => (data: IUser[]): IUser[] => {
   )
 }
 
-const sort = <T>(sortBy: string, orderBy: OrderByType) => (data: T[]): T[] => {
+const sort = <T>(sortBy?: string, orderBy?: OrderByType) => (data: T[]): T[] => {
+  if (!sortBy || !orderBy) return data
   return data.sort((a, b) => (a[sortBy] < b[sortBy] ? -1 : 1) * (orderBy === 'asc' ? 1 : -1))
 }

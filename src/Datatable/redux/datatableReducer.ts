@@ -2,7 +2,7 @@ import {IPagination} from '../../type/paginated'
 import {Criteria} from '../../type/criteria'
 import {range} from '../../utils/common'
 import {createReducer} from './createReducer'
-import {_PAGINATE} from './datatableAction'
+import {PAGINATE_} from './datatableAction'
 
 export interface IPaginateState<T> {
   route?: Promise<IPagination<T>>;
@@ -85,12 +85,12 @@ const sort = <T>(state: IPaginateState<T>, action) => ({
 })
 
 export default <T>(name: string) => createReducer<IPaginateState<T>>(defaultState, {
-  [_PAGINATE(name).REQUEST]: request,
-  [_PAGINATE(name).SUCCESS]: success,
-  [_PAGINATE(name).FAILURE]: failure,
-  [_PAGINATE(name).NEXT_PAGE]: nextPage,
-  [_PAGINATE(name).PREV_PAGE]: prevPage,
-  [_PAGINATE(name).GO_TO_PAGE]: goToPage,
-  [_PAGINATE(name).UPDATE_CRITERIA]: updateCriteria,
-  [_PAGINATE(name).SORT]: sort,
+  [PAGINATE_(name).REQUEST]: request,
+  [PAGINATE_(name).SUCCESS]: success,
+  [PAGINATE_(name).FAILURE]: failure,
+  [PAGINATE_(name).NEXT_PAGE]: nextPage,
+  [PAGINATE_(name).PREV_PAGE]: prevPage,
+  [PAGINATE_(name).GO_TO_PAGE]: goToPage,
+  [PAGINATE_(name).UPDATE_CRITERIA]: updateCriteria,
+  [PAGINATE_(name).SORT]: sort,
 })

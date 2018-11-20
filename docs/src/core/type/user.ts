@@ -9,7 +9,7 @@ export interface IUser extends IEntity {
   phone?: string
   avatar?: string
   validated?: boolean
-  score?: number
+  score: number
   nationality?: string
 }
 

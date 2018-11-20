@@ -1,7 +1,9 @@
 // @ts-ignore
 import React, {useState} from 'react'
-import prism from 'prismjs'
-import {Collapse, createStyles, Icon, IconButton, Theme, withStyles, WithStyles} from '@material-ui/core'
+import {Collapse, createStyles, Icon, IconButton, Tab, Tabs, Theme, withStyles, WithStyles} from '@material-ui/core'
+import {Code} from '../Code/Code'
+import SwipeableViews from 'react-swipeable-views'
+import {actionCode, parseComponentCode, storeCode} from './demo-snippets'
 
 const styles = (t: Theme) => createStyles({
   root: {
@@ -11,7 +13,7 @@ const styles = (t: Theme) => createStyles({
     overflow: 'auto',
   },
   head: {
-    margin: `${t.spacing.unit}px ${t.spacing.unit* 2}px`,
+    margin: `${t.spacing.unit}px ${t.spacing.unit * 2}px ${t.spacing.unit / 2}px ${t.spacing.unit * 2}px`,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-end'
@@ -23,12 +25,15 @@ const styles = (t: Theme) => createStyles({
 })
 
 interface IProps extends WithStyles<typeof styles> {
+  fileName: string
+  constName: string
   component: any
   raw: string
 }
 
-export const Demo = withStyles(styles)(({component: Component, raw, classes}: IProps) => {
+export const Demo = withStyles(styles)(({component: Component, fileName, constName, raw, classes}: IProps) => {
   const [codeOpened, setCodeOponed] = useState<boolean>(false)
+  const [tabIndex, setTabIndex] = useState<number>(0)
   return (
     <section className={classes.root}>
       <div className={classes.head}>
@@ -37,11 +42,16 @@ export const Demo = withStyles(styles)(({component: Component, raw, classes}: IP
         </IconButton>
       </div>
       <Collapse in={codeOpened} unmountOnExit>
-        <pre className="language-javascript" style={{margin: 0, fontSize: 13}}>
-          <code className="markdown-body"
-                dangerouslySetInnerHTML={{__html: prism.highlight(raw, prism.languages.javascript, 'typescript')}}
-          />
-        </pre>
+        <Tabs value={tabIndex} onChange={(e, i) => setTabIndex(i)} indicatorColor="primary" textColor="primary">
+          <Tab label={fileName + '.jsx'}/>
+          <Tab label="action.js"/>
+          <Tab label="store.js"/>
+        </Tabs>
+        <SwipeableViews index={tabIndex} onChangeIndex={setTabIndex}>
+          <Code raw={parseComponentCode(raw)}/>
+          <Code raw={actionCode(fileName, constName)}/>
+          <Code raw={storeCode(fileName, constName)}/>
+        </SwipeableViews>
       </Collapse>
       <div className={classes.wrapper}>
         <Component/>

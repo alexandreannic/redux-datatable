@@ -8,6 +8,8 @@ export const ToolbarDatatableDoc = () => {
   return (
     <Page>
       <Demo
+        fileName="ToolbarDatatable"
+        constName="TOOLBAR_DATATABLE"
         raw={preval`module.exports = require('fs').readFileSync(require.resolve('./ToolbarDatatable.tsx'), 'utf8')`}
         component={ToolbarDatatable}/>
     </Page>

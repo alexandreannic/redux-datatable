@@ -8,6 +8,8 @@ export const ExpendableDatatableDoc = () => {
   return (
     <Page>
       <Demo
+        constName="EXPENDABLE_DATATABLE"
+        fileName="ExpendableDatatable"
         raw={preval`module.exports = require('fs').readFileSync(require.resolve('./ExpendableDatatable.tsx'), 'utf8')`}
         component={ExpendableDatatable}/>
     </Page>

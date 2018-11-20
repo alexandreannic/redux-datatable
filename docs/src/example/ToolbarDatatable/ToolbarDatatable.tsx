@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import {Icon, TableCell} from '@material-ui/core'
 import {fetchUsers} from '../../core/redux/userAction'
 import {Datatable, DatatableBody, DatatableHead, DatatableToolbar} from '../../../../src/Datatable/index'
