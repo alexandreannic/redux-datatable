@@ -1,13 +1,10 @@
 import * as React from 'react'
-import {createStyles, Paper, Slide, Theme, WithStyles, withStyles} from '@material-ui/core'
+import {createStyles, Icon, Slide, Theme, WithStyles, withStyles} from '@material-ui/core'
 import {sidebarWith} from './SidebarLayout'
 import SidebarHr from './SidebarHr'
 import SidebarItem from './SidebarItem'
-import {PaletteColor} from '@material-ui/core/styles/createPalette'
-import {NavLink} from 'react-router-dom'
 import {IconBtn} from 'react-components'
-
-export const sidebarPalette = (t: Theme): PaletteColor => t.palette.primary
+import {SidebarTitle} from './SidebarTitle'
 
 const styles = (t: Theme) => createStyles({
   root: {
@@ -20,7 +17,7 @@ const styles = (t: Theme) => createStyles({
     height: '100vh',
     display: 'flex',
     flexDirection: 'column',
-    // borderRight: `1px solid ${t.palette.divider}`,
+    marginLeft: t.spacing.unit,
     borderRadius: 0,
   },
   main: {
@@ -37,6 +34,10 @@ const styles = (t: Theme) => createStyles({
     background: t.palette.divider,
     margin: 'auto',
   },
+  itemI: {
+    marginLeft: 'auto',
+    color: t.palette.text.disabled,
+  }
 })
 
 interface IProps extends WithStyles<typeof styles> {
@@ -53,12 +54,19 @@ class Sidebar extends React.Component<IProps, {}> {
     const {classes, basePath} = this.props
     return (
       <Slide direction="right" in={true} mountOnEnter unmountOnExit>
-        <Paper elevation={4} className={classes.root}>
+        <div className={classes.root}>
           <main className={classes.main}>
             <SidebarItem to={basePath + 'home'} icon="home">
               Home
             </SidebarItem>
+            <SidebarItem href="https://github.com/alexandreannic/react-components" icon="home" target="_blank">
+              Github
+              <Icon className={classes.itemI}>
+                open_in_new
+              </Icon>
+            </SidebarItem>
             <SidebarHr margin/>
+            <SidebarTitle>Examples</SidebarTitle>
             <SidebarItem to={basePath + 'simple'}>
               Simple Datatable
             </SidebarItem>
@@ -76,7 +84,7 @@ class Sidebar extends React.Component<IProps, {}> {
           <footer className={classes.foot}>
 
           </footer>
-        </Paper>
+        </div>
       </Slide>
     )
   }

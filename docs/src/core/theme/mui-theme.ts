@@ -25,6 +25,7 @@ export const muiTheme = (): any => ({
   },
   typography: {
     fontFamily: '"Open Sans", sans-serif',
+    fontWeightMedium: 600,
   },
   overrides: {
     ...Tab,

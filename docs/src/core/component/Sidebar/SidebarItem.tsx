@@ -12,19 +12,14 @@ const styles = (t: Theme) => createStyles({
     display: 'flex',
     alignItems: 'center',
     textDecoration: 'inherit',
-    // paddingTop: t.spacing.unit,
-    // paddingBottom: t.spacing.unit,
     paddingRight: t.spacing.unit,
     paddingLeft: t.spacing.unit * 2,
     color: t.palette.text.primary,
-    minHeight: 42,
-    // borderRadius: 4,
-    // marginTop: t.spacing.unit / 2,
-    // marginBottom: t.spacing.unit / 2,
-    // marginRight: t.spacing.unit,
-    // marginLeft: t.spacing.unit,
+    minHeight: 38,
+    marginTop: t.spacing.unit / 2,
+    marginBottom: t.spacing.unit / 2,
     cursor: 'pointer',
-    // fontWeight: 500,
+    borderRadius: 42,
     '&:hover': {
       background: 'rgba(0, 0, 0, .05)',
     },
@@ -32,7 +27,6 @@ const styles = (t: Theme) => createStyles({
   rootActive: {
     color: t.palette.primary.main,
     background: fade(t.palette.primary.main, .16),
-    borderRight: `2px solid ${t.palette.primary.main}`,
   },
   i: {
     textAlign: 'center',
@@ -40,8 +34,11 @@ const styles = (t: Theme) => createStyles({
   },
   label: {
     ...css.noWrap,
-    letterSpacing: 1,
+    display: 'flex',
+    alignItems: 'center',
+    flex: 1,
     fontSize: t.typography.fontSize,
+    fontWeight: t.typography.fontWeightMedium,
   },
 })
 
