@@ -41,7 +41,7 @@ export interface IDatatableContext {
   hiddenColumnsIndexes: boolean[]
   onToggleColumnVisibility: (index: number) => void
   isColumnVisible: (index: number) => boolean
-  expendedRow?: number
+  expendedRowIndex?: number
   expendRow: (id: number) => void
 }
 
@@ -157,12 +157,12 @@ class Datatable extends React.Component<IProps & ReturnType<typeof state2props>,
 
   @autobind
   private expendRow(id: number) {
-    this.setState(state => ({expendedRow: state.expendedRow !== id ? id : undefined}))
+    this.setState(state => ({expendedRowIndex: state.expendedRowIndex !== id ? id : undefined}))
   }
 
   private resetExpendedRow() {
-    if (this.state.expendedRow)
-      this.setState({expendedRow: undefined})
+    if (this.state.expendedRowIndex)
+      this.setState({expendedRowIndex: undefined})
   }
 
   private persistHiddenColumns() {

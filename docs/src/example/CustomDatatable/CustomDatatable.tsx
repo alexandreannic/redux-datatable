@@ -1,7 +1,6 @@
 import * as React from 'react'
 import {Checkbox, createStyles, Icon, TableCell, TableRow, withStyles} from '@material-ui/core'
-import {Datatable, DatatableBody, DatatableHead} from '../../../../src/Datatable/index'
-import {TableSortCell} from 'react-components'
+import {Datatable, DatatableBody, DatatableHead, DatatableSort} from '../../../../src/Datatable/index'
 import {UserGender} from '../../core/type/user'
 import DatatableRow from '../../../../src/Datatable/DatatableRow'
 import {PaginateAction} from '../../../../src/Datatable/redux/datatableAction'
@@ -40,10 +39,10 @@ const CustomDatatable = ({updateCriteria, classes}) => {
       action={action}
       style={{border: `1px solid rgba(0, 0, 0, 0.12)`, borderRadius: 4,}}>
       <DatatableHead>
-        <TableSortCell name="gender">Gender</TableSortCell>
-        <TableSortCell name="lastName">Last name</TableSortCell>
-        <TableSortCell name="score">Score</TableSortCell>
-        <TableSortCell name="status">Status</TableSortCell>
+        <DatatableSort name="gender">Gender</DatatableSort>
+        <DatatableSort name="lastName">Last name</DatatableSort>
+        <DatatableSort name="score">Score</DatatableSort>
+        <DatatableSort name="status">Status</DatatableSort>
       </DatatableHead>
       <DatatableBody renderRow={renderRow}>
         <TableRow>

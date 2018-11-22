@@ -52,7 +52,7 @@ interface IProps extends IDatatableContext,
   children: ReactElement<any>
   expend?: boolean
   index: number
-  expendedChild?: ReactChild
+  expendedRow?: ReactChild
 }
 
 class DatatableRow extends React.Component<IProps & ReturnType<typeof state2props>> {
@@ -63,8 +63,8 @@ class DatatableRow extends React.Component<IProps & ReturnType<typeof state2prop
   private timeout: any
 
   render() {
-    const {children, expendedChild, classes} = this.props
-    const onClick = expendedChild ? {onClick: this.toggle} : {}
+    const {children, expendedRow, classes} = this.props
+    const onClick = expendedRow ? {onClick: this.toggle} : {}
     return (
       <>
         <TableRow hover {...onClick}
@@ -75,7 +75,7 @@ class DatatableRow extends React.Component<IProps & ReturnType<typeof state2prop
         <TableRow>
           <TableCell colSpan={100} className={classes.cell}>
             <CardContent>
-              {expendedChild}
+              {expendedRow}
             </CardContent>
             <CardActions>
               {/*TODO Variablize close label*/}
@@ -98,8 +98,8 @@ class DatatableRow extends React.Component<IProps & ReturnType<typeof state2prop
   }
 
   isExpended(): boolean {
-    const {index, expendedRow} = this.props
-    return index === expendedRow
+    const {index, expendedRowIndex} = this.props
+    return index === expendedRowIndex
   }
 
   @autobind

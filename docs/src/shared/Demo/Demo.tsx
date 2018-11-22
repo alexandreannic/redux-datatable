@@ -11,6 +11,8 @@ const styles = (t: Theme) => createStyles({
     borderRadius: 4,
     background: t.palette.background.default,
     overflow: 'auto',
+    marginTop: t.spacing.unit * 3,
+    marginBottom: t.spacing.unit * 3,
   },
   head: {
     margin: `${t.spacing.unit}px ${t.spacing.unit * 2}px ${t.spacing.unit / 2}px ${t.spacing.unit * 2}px`,
@@ -48,9 +50,9 @@ export const Demo = withStyles(styles)(({component: Component, fileName, constNa
           <Tab label="store.js"/>
         </Tabs>
         <SwipeableViews index={tabIndex} onChangeIndex={setTabIndex}>
-          <Code raw={parseComponentCode(raw)}/>
-          <Code raw={actionCode(fileName, constName)}/>
-          <Code raw={storeCode(fileName, constName)}/>
+          <Code raw={parseComponentCode(raw)} style={{margin: 0, borderRadius: 0}}/>
+          <Code raw={actionCode(fileName, constName)} style={{margin: 0, borderRadius: 0}}/>
+          <Code raw={storeCode(fileName, constName)} style={{margin: 0, borderRadius: 0}}/>
         </SwipeableViews>
       </Collapse>
       <div className={classes.wrapper}>

@@ -18,7 +18,7 @@
     "npm": "^6.4.1",
     "prismjs": "^1.15.0",
     "react": "16.7.0-alpha.0",
-    "react-components": "git+https://github.com/Particeep/react-components.git",
+    "react-components": "git+https://github.com/alexandreannic/react-components.git",
     "react-dom": "16.7.0-alpha.0",
     "react-markdown": "^4.0.3",
     "react-redux": "5.0.5",

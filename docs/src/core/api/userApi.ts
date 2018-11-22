@@ -6,6 +6,7 @@ import {IUser} from '../type/user'
 import {compose} from 'redux'
 
 export const getUserFromApi = (c?: UserCriteria): Promise<IPagination<IUser>> => {
+  console.info('Get users with criteria: ', c)
   return new Promise((resolve) => setTimeout(() => resolve(getUsers(c)), 220))
 }
 
@@ -15,15 +16,15 @@ const getUsers = (c?: UserCriteria): IPagination<IUser> => {
     data: c ? compose(
       paginate<IUser>(c.limit, c.offset),
       sort<IUser>(c.sortBy, c.orderBy),
-      globalSearchFilter<IUser>(c.global_search),
+      globalSearchFilter<IUser>(c.globalSearch),
       userFilter(c),
     )(users) : users
   }
 }
 
-const globalSearchFilter = <T>(global_search?: string) => (data: T[]): T[] => {
-  if (!global_search) return data
-  return data.filter(d => Object.values(d).join('').toLowerCase().indexOf(global_search.toLowerCase()) >= 0)
+const globalSearchFilter = <T>(globalSearch?: string) => (data: T[]): T[] => {
+  if (!globalSearch) return data
+  return data.filter(d => Object.values(d).join('').toLowerCase().indexOf(globalSearch.toLowerCase()) >= 0)
 }
 
 const paginate = <T>(limit: number, offset: number) => (data: T[]): T[] => {

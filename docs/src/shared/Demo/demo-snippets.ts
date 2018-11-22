@@ -31,3 +31,4 @@ export const store = createStore(
 
 export const parseComponentCode = (code: string): string => code
   .replace(/import \{fetchUsers\} from \'.*?\'/, 'import {fetchUsers} from \'./action.js\'')
+  .replace(/fetchUsers\(.*?\)/, 'fetchUsers')

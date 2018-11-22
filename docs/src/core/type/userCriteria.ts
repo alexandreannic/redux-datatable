@@ -1,7 +1,7 @@
 import {Criteria} from '../../../../src/type/criteria'
 
 export interface UserCriteria extends Criteria {
-  global_search?: string
+  globalSearch?: string
   firstName?: string
   lastName?: string
   email?: string

@@ -1,10 +1,10 @@
 import * as React from 'react'
+import {ReactElement} from 'react'
 import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core'
 import {TableSortCell} from 'react-components'
 import {SimpleDatatableDoc} from './example/SimpleDatatable/SimpleDatatableDoc'
 import {Sidebar} from './core/component/Sidebar/index'
 import SidebarLayout from './core/component/Sidebar/SidebarLayout'
-import {ReactElement} from 'react'
 import {Redirect, Route, RouteComponentProps, Switch, withRouter} from 'react-router'
 import {css} from './core/theme/style'
 import {ToolbarDatatableDoc} from './example/ToolbarDatatable/ToolbarDatatableDoc'
@@ -13,9 +13,23 @@ import {CustomDatatableDoc} from './example/CustomDatatable/CustomDatatableDoc'
 
 const styles = (t: Theme) => createStyles({
   '@global': {
-    'body': {
+    body: {
       fontFamily: t.typography.fontFamily,
-    }
+    },
+    code: {
+      background: '#f5f2f0',
+      borderRadius: 3,
+      padding: '.2em .4em'
+    },
+    ul: {
+      marginTop: '.5em'
+    },
+    h1: t.typography.h4,
+    h2: {
+      ...t.typography.h6,
+      marginBottom: 0,
+    },
+    p: t.typography.body1
   },
   root: {
     maxWidth: css.pageWidth,

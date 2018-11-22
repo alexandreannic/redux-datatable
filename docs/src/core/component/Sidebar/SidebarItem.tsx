@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {ReactElement} from 'react'
+import {ReactChild, ReactElement} from 'react'
 import {createStyles, Icon, Theme, WithStyles, withStyles} from '@material-ui/core'
 import {NavLink} from 'react-router-dom'
 import classNames from 'classnames'
@@ -44,6 +44,7 @@ const styles = (t: Theme) => createStyles({
 
 interface IProps extends WithStyles<typeof styles> {
   icon?: string;
+  before?: ReactChild;
   to?: any;
   href?: any;
   className?: any;
@@ -52,10 +53,11 @@ interface IProps extends WithStyles<typeof styles> {
 class SidebarItem extends React.Component<IProps & any, any> {
 
   render() {
-    const {classes, href, to, children, icon, ...other} = this.props
+    const {classes, href, to, children, icon, before, ...other} = this.props
     const item = (
       <>
         {icon && <Icon className={classes.i}>{icon}</Icon>}
+        {before && <div className={classes.i} style={{display: 'flex', alignItems: 'center'}}>{before}</div>}
         <span className={classes.label}>{children}</span>
       </>
     )

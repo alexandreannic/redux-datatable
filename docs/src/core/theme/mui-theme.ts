@@ -1,4 +1,4 @@
-import {cyan, purple, red} from '@material-ui/core/colors'
+import {cyan, blue, red} from '@material-ui/core/colors'
 
 const Tab = {
   MuiTabs: {
@@ -18,7 +18,7 @@ const Tab = {
 
 export const muiTheme = (): any => ({
   palette: {
-    primary: purple,
+    primary: blue,
     secondary: cyan,
     error: red,
     type: 'light'

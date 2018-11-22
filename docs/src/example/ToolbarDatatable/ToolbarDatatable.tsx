@@ -1,8 +1,7 @@
 import React from 'react'
 import {Icon, TableCell} from '@material-ui/core'
 import {fetchUsers} from '../../core/redux/userAction'
-import {Datatable, DatatableBody, DatatableHead, DatatableToolbar} from '../../../../src/Datatable/index'
-import {TableSortCell} from 'react-components'
+import {Datatable, DatatableBody, DatatableHead, DatatableSort, DatatableToolbar} from '../../../../src/Datatable/index'
 import DatatableRow from '../../../../src/Datatable/DatatableRow'
 
 export const TOOLBAR_DATATABLE = 'toolbarDatatable'
@@ -12,24 +11,24 @@ const ToolbarDatatable = () => {
     <Datatable
       name={TOOLBAR_DATATABLE}
       action={fetchUsers(TOOLBAR_DATATABLE)}
-      toolbar={<DatatableToolbar search="global_search"/>}
+      toolbar={<DatatableToolbar search="globalSearch"/>}
       style={{border: `1px solid rgba(0, 0, 0, 0.12)`, borderRadius: 4,}}>
       <DatatableHead>
-        <TableSortCell name="createdAt">Date</TableSortCell>
-        <TableSortCell name="gender">Gender</TableSortCell>
-        <TableSortCell name="firstName">First name</TableSortCell>
-        <TableSortCell name="lastName">Last name</TableSortCell>
-        <TableSortCell name="email">Email</TableSortCell>
-        <TableSortCell name="phone">Phone</TableSortCell>
-        <TableSortCell name="score">Score</TableSortCell>
-        <TableSortCell name="status">Status</TableSortCell>
+        <DatatableSort name="createdAt">Date</DatatableSort>
+        <DatatableSort name="gender">Gender</DatatableSort>
+        <DatatableSort name="firstName">First name</DatatableSort>
+        <DatatableSort name="lastName">Last name</DatatableSort>
+        <DatatableSort name="email">Email</DatatableSort>
+        <DatatableSort name="phone">Phone</DatatableSort>
+        <DatatableSort name="score">Score</DatatableSort>
+        <DatatableSort name="status">Status</DatatableSort>
       </DatatableHead>
       <DatatableBody renderRow={renderRow}/>
     </Datatable>
   )
 }
 
-const renderRow = (u) => {
+const renderRow = u => {
   return (
     <DatatableRow>
       <TableCell>{new Date(u.createdAt).toLocaleDateString()}</TableCell>

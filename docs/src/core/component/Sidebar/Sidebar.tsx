@@ -3,7 +3,7 @@ import {createStyles, Icon, Slide, Theme, WithStyles, withStyles} from '@materia
 import {sidebarWith} from './SidebarLayout'
 import SidebarHr from './SidebarHr'
 import SidebarItem from './SidebarItem'
-import {IconBtn} from 'react-components'
+import {IconBtn, GitHubIcon} from 'react-components'
 import {SidebarTitle} from './SidebarTitle'
 
 const styles = (t: Theme) => createStyles({
@@ -59,8 +59,8 @@ class Sidebar extends React.Component<IProps, {}> {
             <SidebarItem to={basePath + 'home'} icon="home">
               Home
             </SidebarItem>
-            <SidebarItem href="https://github.com/alexandreannic/react-components" icon="home" target="_blank">
-              Github
+            <SidebarItem href="https://github.com/alexandreannic/react-components" before={<GitHubIcon/>} target="_blank">
+              GitHub
               <Icon className={classes.itemI}>
                 open_in_new
               </Icon>
