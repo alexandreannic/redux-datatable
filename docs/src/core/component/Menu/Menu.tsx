@@ -43,7 +43,7 @@ export const Menu = withStyles(styles)(({classes, className, basePath = ''}: IPr
         <SidebarItem large to={basePath + 'simple'}>Simple Datatable</SidebarItem>
         <SidebarItem large to={basePath + 'toolbar'}>Toolbar Datatable</SidebarItem>
         <SidebarItem large to={basePath + 'expendable'}>Expendable Datatable</SidebarItem>
-        <SidebarItem large to={basePath + 'customs'}>Custom Datatable</SidebarItem>
+        <SidebarItem large to={basePath + 'custom'}>Custom Datatable</SidebarItem>
       </SidebarBody>
       <SidebarFooter>
         <SidebarItem icon="brightness_3">
