@@ -1,12 +1,18 @@
 {
   "presets": [
-    "env"
+    "@babel/preset-env",
+    "@babel/preset-react",
+    "@babel/typescript"
   ],
   "plugins": [
-    "transform-object-rest-spread",
-    "transform-react-jsx",
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
     "transform-class-properties",
-    "babel-plugin-transform-export-extensions",
-    "transform-es2015-modules-commonjs"
+    "macros",
+    "preval"
   ]
 }

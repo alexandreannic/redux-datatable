@@ -8,7 +8,7 @@ module.exports = webpackMerge(commonConfig, {
     devtool: 'eval-source-map',
     target: 'web',
     entry: {
-        'app': ['babel-polyfill', path.resolve('src/app/index.tsx')],
+        'app': ['babel-polyfill', path.resolve('docs/src/index.tsx')],
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
