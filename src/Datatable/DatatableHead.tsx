@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {ReactElement} from 'react'
-import {TableSort, TableSortCell} from 'react-components'
+import {TableSort, TableSortCell} from 'mui-extension'
 import {Checkbox, createStyles, Theme, withStyles, WithStyles} from '@material-ui/core'
 import autobind from 'autobind-decorator'
 import {datatableConsumer, IDatatableContext} from './Datatable'

@@ -10,7 +10,7 @@ import {LocalStorageEntity} from '../utils/localStorage'
 const DatatableContext = React.createContext({})
 export const datatableConsumer = <P extends object>(
   Component: React.ComponentType<P & IDatatableContext>
-): React.SFC<any> => (props: Pick<P, Exclude<keyof P, keyof IDatatableContext>>) => (
+): React.FunctionComponent<any> => (props: Pick<P, Exclude<keyof P, keyof IDatatableContext>>) => (
   <DatatableContext.Consumer>
     {(ctx: any) => <Component {...props} {...ctx}/>}
   </DatatableContext.Consumer>

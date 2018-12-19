@@ -22,7 +22,7 @@ const styles = (t: Theme) => createStyles({
   },
   wrapper: {
     margin: t.spacing.unit * 2,
-    background: 'white',
+    background: t.palette.background.paper,
   }
 })
 

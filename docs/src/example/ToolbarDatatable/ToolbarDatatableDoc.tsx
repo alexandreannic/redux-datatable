@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Page} from 'react-components'
+import {Page} from 'mui-extension'
 import ToolbarDatatable from './ToolbarDatatable'
 import {Demo} from '../../shared/Demo/Demo'
 import preval from 'babel-plugin-preval/macro'

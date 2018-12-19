@@ -1,25 +1,21 @@
 import * as React from 'react'
 import {ReactElement} from 'react'
 import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core'
-import {TableSortCell} from 'react-components'
+import {Layout, TableSort} from 'mui-extension'
 import {SimpleDatatableDoc} from './example/SimpleDatatable/SimpleDatatableDoc'
-import {Sidebar} from './core/component/Sidebar/index'
-import SidebarLayout from './core/component/Sidebar/SidebarLayout'
 import {Redirect, Route, RouteComponentProps, Switch, withRouter} from 'react-router'
-import {css} from './core/theme/style'
 import {ToolbarDatatableDoc} from './example/ToolbarDatatable/ToolbarDatatableDoc'
 import {ExpendableDatatableDoc} from './example/ExpendableDatatable/ExpendableDatatableDoc'
 import {CustomDatatableDoc} from './example/CustomDatatable/CustomDatatableDoc'
+import {Menu} from './core/component/Menu/Menu'
 
 const styles = (t: Theme) => createStyles({
   '@global': {
     body: {
       fontFamily: t.typography.fontFamily,
-    },
-    code: {
-      background: '#f5f2f0',
-      borderRadius: 3,
-      padding: '.2em .4em'
+      background: t.palette.background.paper,
+      margin: 0,
+      color: t.palette.text.primary,
     },
     ul: {
       marginTop: '.5em'
@@ -29,12 +25,25 @@ const styles = (t: Theme) => createStyles({
       ...t.typography.h6,
       marginBottom: 0,
     },
-    p: t.typography.body1
+    p: {
+      ...t.typography.body1,
+      textAlign: 'justify',
+    },
+    a: {
+      color: 'inherit',
+      textDecoration: 'none',
+    },
+    ':focus': {
+      outline: 0,
+    },
+    '.link': {
+      color: t.palette.primary.main,
+      textDecoration: 'underline',
+    }
   },
-  root: {
-    maxWidth: css.pageWidth,
-    margin: '30px auto',
-  },
+  title: {
+    whiteSpace: 'nowrap'
+  }
 })
 
 interface IProps extends WithStyles<typeof styles>, RouteComponentProps<any> {
@@ -45,8 +54,7 @@ export const App = withStyles(styles)(withRouter(({classes, match}: IProps): Rea
   const route = (path: string = '') => match.url + path
 
   return (
-    <SidebarLayout>
-      <Sidebar basePath={match.url}/>
+    <Layout sidebar={Menu} title={<div className={classes.title}>Redux-datatable</div>}>
       <Switch>
         <Route path={route('home')} component={SimpleDatatableDoc}/>
         <Route path={route('simple')} component={SimpleDatatableDoc}/>
@@ -55,6 +63,6 @@ export const App = withStyles(styles)(withRouter(({classes, match}: IProps): Rea
         <Route path={route('custom')} component={CustomDatatableDoc}/>
         <Redirect exact from={route('')} to={route('home')}/>
       </Switch>
-    </SidebarLayout>
+    </Layout>
   )
 }))

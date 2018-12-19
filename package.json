@@ -18,7 +18,7 @@
     "npm": "^6.4.1",
     "prismjs": "^1.15.0",
     "react": "16.7.0-alpha.0",
-    "react-components": "git+https://github.com/alexandreannic/react-components.git",
+    "mui-extension": "git+https://github.com/alexandreannic/mui-extension.git",
     "react-dom": "16.7.0-alpha.0",
     "react-markdown": "^4.0.3",
     "react-redux": "5.0.5",
@@ -30,8 +30,9 @@
     "redux-thunk": "2.1.0"
   },
   "scripts": {
+    "compile": "webpack --config webpack.compile.js",
     "start": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production"
+    "build": "webpack --config webpack.build.js -p"
   },
   "author": {
     "name": "Alexandre Annic",

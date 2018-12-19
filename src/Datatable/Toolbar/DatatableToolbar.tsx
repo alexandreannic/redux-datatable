@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {IconBtn, withGlobalProgress, withToast} from 'react-components'
+import {IconBtn, withGlobalProgress, withToast} from 'mui-extension'
 import {createStyles, Icon, TableCell, TableHead, TableRow, Theme, WithStyles, withStyles} from '@material-ui/core'
 import {datatableConsumer, IDatatableContext} from '../Datatable'
 import {connect} from 'react-redux'
