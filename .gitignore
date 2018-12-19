@@ -29,7 +29,6 @@ activator*
 node_modules
 npm-debug.log
 .DS_Store
+/dist
 
 TODO\.txt
-
-react/\.idea/

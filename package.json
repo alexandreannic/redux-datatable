@@ -19,6 +19,7 @@
     "prismjs": "^1.15.0",
     "react": "16.7.0-alpha.0",
     "mui-extension": "git+https://github.com/alexandreannic/mui-extension.git",
+    "redux-datatable": "https://github.com/alexandreannic/redux-datatable.git",
     "react-dom": "16.7.0-alpha.0",
     "react-markdown": "^4.0.3",
     "react-redux": "5.0.5",
