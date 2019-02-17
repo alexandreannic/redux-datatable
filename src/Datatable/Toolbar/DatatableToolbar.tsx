@@ -1,11 +1,12 @@
 import * as React from 'react'
 import {IconBtn, withGlobalProgress, withToast} from 'mui-extension'
-import {createStyles, Icon, TableCell, TableHead, TableRow, Theme, WithStyles, withStyles} from '@material-ui/core'
+import {createStyles, Icon, Theme, WithStyles, withStyles} from '@material-ui/core'
 import {datatableConsumer, IDatatableContext} from '../Datatable'
 import {connect} from 'react-redux'
 import DatatableColumnsFilter from './DatatableColumnsFilter'
 import autobind from 'autobind-decorator'
 import {RootState} from '../redux/datatableAction'
+import debounce from 'lodash.debounce'
 
 const styles = (t: Theme) => createStyles({
   row: {
@@ -84,7 +85,9 @@ class DatatableToolbar extends React.Component<IProps & ReturnType<typeof state2
             <Icon>search</Icon>
           </IconBtn>
           {/*TODO Variabilize search placeholder*/}
-          <input autoFocus className={classes.search_input} placeholder="Search" onChange={this.handleSearch}/>
+          <input autoFocus className={classes.search_input} placeholder="Search"
+                 onChange={({target: {value}}) => this.handleSearch(value)}
+          />
           <IconBtn onClick={this.handleClearSearch}>
             <Icon>clear</Icon>
           </IconBtn>
@@ -99,14 +102,12 @@ class DatatableToolbar extends React.Component<IProps & ReturnType<typeof state2
     this.setState(state => ({showSearch: !state.showSearch}))
   }
 
-  // TODO Make it works
-  // private debounceonSearch = debounce(this.onSearch, 100)
-
-  @autobind
-  private handleSearch(event) {
+  private handleSearch = debounce((value) => {
     const {actions, search, dispatch} = this.props
-    if (search) dispatch(actions.updateCriteria(search, event.target.value))
-  }
+    if (search) {
+      dispatch(actions.updateCriteria(search, value))
+    }
+  }, 400)
 
   @autobind
   private handleClearSearch(event) {
