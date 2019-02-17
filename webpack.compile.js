@@ -6,7 +6,7 @@ module.exports = webpackMerge(commonConfig, {
   externals: {
     'react': 'commonjs react' // this line is just to use the React dependency of our parent-testing-project instead of using our own React.
   },
-  entry: path.resolve('./src/lib/index.ts'),
+  entry: path.resolve('./src/index.ts'),
   output: {
     path: path.resolve('./compile'),
     filename: 'index.js',

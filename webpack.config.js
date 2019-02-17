@@ -1,29 +1,16 @@
+const webpackMerge = require('webpack-merge')
+const commonConfig = require('./webpack.js')
+const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-module.exports = {
+module.exports = webpackMerge(commonConfig, {
   entry: {
-    'app': ['babel-polyfill', './docs/src/index.tsx'],
-  },
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json']
-  },
-  module: {
-    rules: [
-      {
-        test: /\.[jt]sx?$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
-      }, {
-        test: /\.css$/,
-        loader: 'style-loader!css-loader?importLoaders=1'
-      },
-    ]
+    'app': ['babel-polyfill', path.resolve('./docs/src/index.tsx')],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './docs/src/index.html'
+      template: path.resolve('./docs/src/index.html'),
+      favicon: './docs/asset/favicon.ico',
     })
-  ]
-}
+  ],
+})

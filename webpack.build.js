@@ -10,9 +10,6 @@ module.exports = webpackMerge(commonConfig, {
   entry: {
     'app': ['babel-polyfill', './src/demo/index.tsx'],
   },
-  plugins: [
-    new webpack.optimize.ModuleConcatenationPlugin(),
-  ],
   optimization: {
     noEmitOnErrors: true,
     removeAvailableModules: false
@@ -23,4 +20,11 @@ module.exports = webpackMerge(commonConfig, {
     filename: '[name].js',
     chunkFilename: '[id].chunk.js',
   },
+  plugins: [
+    new webpack.optimize.ModuleConcatenationPlugin(),
+    new HtmlWebpackPlugin({
+      template: path.resolve('./docs/src/index.html'),
+      favicon: './docs/asset/favicon.ico',
+    })
+  ],
 })
