@@ -19,7 +19,7 @@ const Tab = {
 export const muiTheme = (isDark: boolean): any => ({
   palette: {
     primary: blue,
-    secondary: orange,
+    secondary: blue,
     error: red,
     type: isDark ? 'dark' : 'light'
   },
