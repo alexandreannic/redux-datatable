@@ -1,8 +1,7 @@
 import React from 'react'
 import {Icon, TableCell} from '@material-ui/core'
 import {fetchUsers} from '../../core/redux/userAction'
-import {Datatable, DatatableBody, DatatableHead, DatatableSort, DatatableToolbar} from '../../../../src/Datatable/index'
-import DatatableRow from '../../../../src/Datatable/DatatableRow'
+import {Datatable, DatatableRow, DatatableBody, DatatableHead, DatatableSort, DatatableToolbar} from '../../../../src/Datatable/index'
 
 export const TOOLBAR_DATATABLE = 'toolbarDatatable'
 

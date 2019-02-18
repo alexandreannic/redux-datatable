@@ -27,12 +27,17 @@ import {muiTheme} from './core/theme/mui-theme'
 import {App} from './App'
 import {Provider} from 'react-redux'
 import {store} from './core/redux/store'
+import MuiThemeProviderHook from '@material-ui/styles/ThemeProvider'
 
 const Root = () => {
   const isDarkTheme = useTheme()
+  // TODO MuiThemeProvider from package core is needed for the lib. Refacto lib using new API.
+  const theme = createMuiTheme(muiTheme(isDarkTheme))
   return (
-    <MuiThemeProvider theme={createMuiTheme(muiTheme(isDarkTheme))}>
-      <App/>
+    <MuiThemeProvider theme={theme}>
+      <MuiThemeProviderHook theme={theme}>
+        <App/>
+      </MuiThemeProviderHook>
     </MuiThemeProvider>
   )
 }

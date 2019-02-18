@@ -4,11 +4,12 @@ import {Demo} from '../../shared/Demo/Demo'
 import SimpleDatatable from './SimpleDatatable'
 import preval from 'babel-plugin-preval/macro'
 import {Code} from '../../shared/Code/Code'
+import {PageTitle} from '../../shared/PageTitle/PageTitle'
 
 export const SimpleDatatableDoc = () => {
   return (
     <Page>
-      <h1>Simple DataTable</h1>
+      <PageTitle>Simple DataTable</PageTitle>
       <p>
         Simplest example introducing the following features:
       </p>
@@ -18,17 +19,17 @@ export const SimpleDatatableDoc = () => {
       </ul>
       <h2>Pagination</h2>
       <p>
-        It trigger the <code>action</code> handling the parameters <code>limit</code> and <code>offset</code>
+        It trigger the <Code>action</Code> handling the parameters <Code>limit</Code> and <Code>offset</Code>
       </p>
       <h2>Sort</h2>
       <p>
-        To make a column sortable, simply define the props <code>name</code> as follows:
-        <Code raw={`<DatatableSort name="createdAt">Date</DatatableSort>`}/>
-        When clicking on it, it will trigger the <code>action</code> including <code>sortBy</code> with&nbsp;
-        <b>createdAt</b> and&nbsp; <code>orderBy</code> toggling between <b>asc</b> and <b>desc</b>.
+        To make a column sortable, simply define the props <Code>name</Code> as follows:
+        <Code>{'<DatatableSort name="createdAt">Date</DatatableSort>'}</Code>
+        When clicking on it, it will trigger the <Code>action</Code> including <Code>sortBy</Code> with&nbsp;
+        <b>createdAt</b> and&nbsp; <Code>orderBy</Code> toggling between <b>asc</b> and <b>desc</b>.
         <br/>
-        If <code>name</code> is not defined, <code>{`<DatatableSort/>`}</code> will behave as
-        <code>{`<TableCell/>`}</code> from Material-UI.
+        If <Code>name</Code> is not defined, <Code>{`<DatatableSort/>`}</Code> will behave as
+        <Code>{`<TableCell/>`}</Code> from Material-UI.
       </p>
 
       <Demo

@@ -1,15 +1,13 @@
 import * as React from 'react'
 import {Checkbox, createStyles, Icon, TableCell, TableRow, withStyles} from '@material-ui/core'
-import {Datatable, DatatableBody, DatatableHead, DatatableSort} from '../../../../src/Datatable/index'
+import {Datatable, DatatableBody, DatatableHead, DatatableRow, DatatableSort, PaginateAction} from '../../../../src/Datatable/index'
 import {UserGender} from '../../core/type/user'
-import DatatableRow from '../../../../src/Datatable/DatatableRow'
-import {PaginateAction} from '../../../../src/Datatable/redux/datatableAction'
 import {fetchUsers} from '../../core/redux/userAction'
 import {connect} from 'react-redux'
 
-export const EXPENDABLE_DATATABLE = 'expendableDatatable'
-const action = fetchUsers(EXPENDABLE_DATATABLE)
-const paginateAction = new PaginateAction(EXPENDABLE_DATATABLE, action)
+export const CUSTOM_DATATABLE = 'customDatatable'
+const action = fetchUsers(CUSTOM_DATATABLE)
+const paginateAction = new PaginateAction(CUSTOM_DATATABLE, action)
 
 const dispatch2props = dispatch => ({
   updateCriteria: (name, value) => dispatch(paginateAction.updateCriteria(name, value)),
@@ -35,7 +33,7 @@ const CustomDatatable = ({updateCriteria, classes}) => {
   const update = name => event => updateCriteria(name, event.target.value)
   return (
     <Datatable
-      name={EXPENDABLE_DATATABLE}
+      name={CUSTOM_DATATABLE}
       action={action}
       style={{border: `1px solid rgba(0, 0, 0, 0.12)`, borderRadius: 4,}}>
       <DatatableHead>

@@ -8,9 +8,13 @@ import {ToolbarDatatableDoc} from './example/ToolbarDatatable/ToolbarDatatableDo
 import {ExpendableDatatableDoc} from './example/ExpendableDatatable/ExpendableDatatableDoc'
 import {CustomDatatableDoc} from './example/CustomDatatable/CustomDatatableDoc'
 import {Menu} from './core/component/Menu/Menu'
+import {Home} from './page/Home/Home'
 
 const styles = (t: Theme) => createStyles({
   '@global': {
+    'input, textarea, select, button': {
+      color: 'inherit',
+    },
     body: {
       fontFamily: t.typography.fontFamily,
       background: t.palette.background.paper,
@@ -28,6 +32,7 @@ const styles = (t: Theme) => createStyles({
     p: {
       ...t.typography.body1,
       textAlign: 'justify',
+      fontSize: '1rem',
     },
     a: {
       color: 'inherit',
@@ -56,7 +61,7 @@ export const App = withStyles(styles)(withRouter(({classes, match}: IProps): Rea
   return (
     <Layout sidebar={Menu} title={<div className={classes.title}>Redux-datatable</div>}>
       <Switch>
-        <Route path={route('home')} component={SimpleDatatableDoc}/>
+        <Route path={route('home')} component={Home}/>
         <Route path={route('simple')} component={SimpleDatatableDoc}/>
         <Route path={route('toolbar')} component={ToolbarDatatableDoc}/>
         <Route path={route('expendable')} component={ExpendableDatatableDoc}/>

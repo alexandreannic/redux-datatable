@@ -1,7 +1,6 @@
 import * as React from 'react'
 import {Icon, TableCell} from '@material-ui/core'
-import {Datatable, DatatableBody, DatatableHead, DatatableSort} from '../../../../src/Datatable/index'
-import DatatableRow from '../../../../src/Datatable/DatatableRow'
+import {Datatable, DatatableRow, DatatableBody, DatatableHead, DatatableSort} from '../../../../src/Datatable/index'
 import {fetchUsers} from '../../core/redux/userAction'
 
 export const EXPENDABLE_DATATABLE = 'expendableDatatable'

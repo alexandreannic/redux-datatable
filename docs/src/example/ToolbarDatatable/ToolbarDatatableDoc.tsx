@@ -3,19 +3,21 @@ import {Page} from 'mui-extension'
 import ToolbarDatatable from './ToolbarDatatable'
 import {Demo} from '../../shared/Demo/Demo'
 import preval from 'babel-plugin-preval/macro'
+import {Code} from '../../shared/Code/Code'
+import {PageTitle} from '../../shared/PageTitle/PageTitle'
 
 export const ToolbarDatatableDoc = () => {
   return (
     <Page>
-      <h1>Toolbar Datatable</h1>
+      <PageTitle>Toolbar Datatable</PageTitle>
       <p>
-        This example introduce new component <code>DatatableToolbar</code>.
-        It takes a string parameter (<code>globalSearch</code> in this example) via the
-        props <code>search</code> associated to an input. When this input change, the action <code>fetchUsers</code> is
+        This example introduce new component <Code>DatatableToolbar</Code>.
+        It takes a string parameter (<Code>globalSearch</Code> in this example) via the
+        props <Code>search</Code> associated to an input. When this input change, the action <Code>fetchUsers</Code> is
         triggered and a entry is added to the criterias with the string parameter as key and the input value as value.
       </p>
       <p>
-        This example also shows the responsiveness of the <code>Datatable</code>.
+        This example also shows the responsiveness of the <Code>Datatable</Code>.
       </p>
       <Demo
         fileName="ToolbarDatatable"

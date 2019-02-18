@@ -5,6 +5,7 @@ import datatableReducer from '../../../../src/Datatable/redux/datatableReducer'
 import {SIMPLE_DATATABLE} from '../../example/SimpleDatatable/SimpleDatatable'
 import {TOOLBAR_DATATABLE} from '../../example/ToolbarDatatable/ToolbarDatatable'
 import {EXPENDABLE_DATATABLE} from '../../example/ExpendableDatatable/ExpendableDatatable'
+import {CUSTOM_DATATABLE} from '../../example/CustomDatatable/CustomDatatable'
 
 export const store = createStore(
   combineReducers({
@@ -12,6 +13,7 @@ export const store = createStore(
       [SIMPLE_DATATABLE]: datatableReducer<IUser>(SIMPLE_DATATABLE),
       [TOOLBAR_DATATABLE]: datatableReducer<IUser>(TOOLBAR_DATATABLE),
       [EXPENDABLE_DATATABLE]: datatableReducer<IUser>(EXPENDABLE_DATATABLE),
+      [CUSTOM_DATATABLE]: datatableReducer<IUser>(CUSTOM_DATATABLE),
     }),
   }),
   compose(

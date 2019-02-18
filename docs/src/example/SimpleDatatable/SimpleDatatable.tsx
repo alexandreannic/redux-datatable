@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {Icon, TableCell} from '@material-ui/core'
-import {Datatable, DatatableBody, DatatableHead, DatatableRow, DatatableSort} from '../../../../src/index'
+import {Datatable, DatatableBody, DatatableHead, DatatableRow, DatatableSort} from '../../../../src/Datatable/index'
 import {fetchUsers} from '../../core/redux/userAction'
 
 export const SIMPLE_DATATABLE = 'simpleDatatable'

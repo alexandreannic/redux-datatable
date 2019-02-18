@@ -1,9 +1,8 @@
-// @ts-ignore
 import React, {useState} from 'react'
 import {Collapse, createStyles, Icon, IconButton, Tab, Tabs, Theme, withStyles, WithStyles} from '@material-ui/core'
-import {Code} from '../Code/Code'
 import SwipeableViews from 'react-swipeable-views'
 import {actionCode, parseComponentCode, storeCode} from './demo-snippets'
+import {Pre} from '../Pre/Pre'
 
 const styles = (t: Theme) => createStyles({
   root: {
@@ -50,9 +49,9 @@ export const Demo = withStyles(styles)(({component: Component, fileName, constNa
           <Tab label="store.js"/>
         </Tabs>
         <SwipeableViews index={tabIndex} onChangeIndex={setTabIndex}>
-          <Code raw={parseComponentCode(raw)} style={{margin: 0, borderRadius: 0}}/>
-          <Code raw={actionCode(fileName, constName)} style={{margin: 0, borderRadius: 0}}/>
-          <Code raw={storeCode(fileName, constName)} style={{margin: 0, borderRadius: 0}}/>
+          <Pre raw={parseComponentCode(raw)} style={{margin: 0, borderRadius: 0}}/>
+          <Pre raw={actionCode(fileName, constName)} style={{margin: 0, borderRadius: 0}}/>
+          <Pre raw={storeCode(fileName, constName)} style={{margin: 0, borderRadius: 0}}/>
         </SwipeableViews>
       </Collapse>
       <div className={classes.wrapper}>

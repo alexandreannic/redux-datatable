@@ -1,18 +1,29 @@
-import React from 'react'
-import prism from 'prismjs'
-import 'prismjs/themes/prism.css'
+import * as React from 'react'
+import {ReactNode} from 'react'
+import {Theme} from '@material-ui/core'
+import {makeStyles} from '@material-ui/styles'
+
+const useStyles = makeStyles((t: Theme) => ({
+  root: {
+    background: t.palette.background.default,
+    color: t.palette.text.secondary,
+    borderRadius: 3,
+    padding: '.2em .4em',
+  }
+}))
 
 interface IProps {
-  raw: string
-  style?: object
+  children: ReactNode
 }
 
-export const Code = ({raw, style}: IProps) => {
+export const Code = ({children}: IProps) => {
+  // @ts-ignore
+  const classes = useStyles()
   return (
-    <pre className="language-javascript" style={{margin: '1em 0', fontSize: 13, borderRadius: 4, ...style}}>
-      <code className="markdown-body"
-            dangerouslySetInnerHTML={{__html: prism.highlight(raw, prism.languages.javascript, 'typescript')}}
-      />
-    </pre>
+    <>
+      {' '/*https://github.com/facebook/react/issues/1643*/}
+      <code className={classes.root}>{children}</code>
+      {' '}
+    </>
   )
 }
