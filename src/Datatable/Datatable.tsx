@@ -51,7 +51,7 @@ class Datatable extends React.Component<IProps & ReturnType<typeof state2props>,
 
   constructor(props) {
     super(props)
-    this.storage = new LocalStorageEntity<boolean[]>('datatable_columns_' + name)
+    this.storage = new LocalStorageEntity<boolean[]>('datatable_columns_' + props.name)
     this.state = {
       name: props.name,
       actions: new PaginateAction<any>(props.name, props.action),
