@@ -30,7 +30,7 @@ export const Menu = withStyles(styles)(({classes, className, basePath = ''}: IPr
         </SidebarItem>
         <SidebarItem
           href="https://github.com/alexandreannic/redux-datatable"
-          before={<GitHubIcon/>}
+          icon={<GitHubIcon/>}
           target="_blank"
           large>
           GitHub

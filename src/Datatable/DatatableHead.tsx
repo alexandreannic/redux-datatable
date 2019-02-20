@@ -69,6 +69,7 @@ class DatatableHead extends React.Component<IProps & ReturnType<typeof state2pro
 
   private publishColumns() {
     const {children, publishColumns} = this.props
+    // @ts-ignore
     publishColumns(React.Children.map(children, (c: ReactElement<ITableSortCellProps>) => ({label: c.props.children})))
   }
 }
