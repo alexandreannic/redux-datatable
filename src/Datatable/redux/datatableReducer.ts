@@ -84,13 +84,16 @@ const sort = <T>(state: IPaginateState<T>, action) => ({
   },
 })
 
-export default <T>(name: string) => createReducer<IPaginateState<T>>(defaultState, {
-  [PAGINATE_(name).REQUEST]: request,
-  [PAGINATE_(name).SUCCESS]: success,
-  [PAGINATE_(name).FAILURE]: failure,
-  [PAGINATE_(name).NEXT_PAGE]: nextPage,
-  [PAGINATE_(name).PREV_PAGE]: prevPage,
-  [PAGINATE_(name).GO_TO_PAGE]: goToPage,
-  [PAGINATE_(name).UPDATE_CRITERIA]: updateCriteria,
-  [PAGINATE_(name).SORT]: sort,
-})
+export const datatableReducer = <T>(name: string) => {
+  const ACTION = PAGINATE_(name)
+  return createReducer<IPaginateState<T>>(defaultState, {
+    [ACTION.REQUEST]: request,
+    [ACTION.SUCCESS]: success,
+    [ACTION.FAILURE]: failure,
+    [ACTION.NEXT_PAGE]: nextPage,
+    [ACTION.PREV_PAGE]: prevPage,
+    [ACTION.GO_TO_PAGE]: goToPage,
+    [ACTION.UPDATE_CRITERIA]: updateCriteria,
+    [ACTION.SORT]: sort,
+  })
+}

@@ -4,4 +4,5 @@ export {default as DatatableRow} from './DatatableRow';
 export {default as DatatableBody} from './DatatableBody';
 export {default as DatatableToolbar} from './Toolbar/DatatableToolbar';
 export {TableSortCell as DatatableSort} from 'mui-extension'
-export {PaginateAction} from './redux/datatableAction'
+export {PaginateAction, PAGINATE_} from './redux/datatableAction'
+export {datatableReducer, IPaginateState} from './redux/datatableReducer'
