@@ -1,8 +1,9 @@
 {
-  "name": "redux-datatable",
-  "version": "0.0.1",
+  "name": "@alexandreannic/redux-datatable",
+  "version": "0.0.3",
   "description": "Simple datatable API using redux",
   "main": "lib/index.js",
+  "private": false,
   "peerDependencies": {
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
@@ -12,17 +13,14 @@
     "react-redux": "5.0.5"
   },
   "dependencies": {
-    "mui-extension": "^1.0.1",
+    "mui-extension": "^1.0.3",
     "autobind-decorator": "^2.3.1",
     "prismjs": "^1.15.0"
   },
   "scripts": {
     "build": "tsc --declaration"
   },
-  "author": {
-    "name": "Alexandre Annic",
-    "email": "alexandre.annic1@gmail.com"
-  },
+  "author": "Alexandre Annic <alexandre.annic1@gmail.com>",
   "devDependencies": {
     "@types/enzyme": "^3.1.15",
     "@types/react": "^16.7.6",
@@ -42,5 +40,27 @@
     "eslint-plugin-react": "^7.11.1",
     "jest": "^23.6.0",
     "typescript": "^2.9.2"
-  }
+  },
+  "directories": {
+    "doc": "docs",
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexandreannic/redux-datatable.git"
+  },
+  "keywords": [
+    "react",
+    "react-components",
+    "redux",
+    "datatable",
+    "material-design",
+    "material-ui"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexandreannic/redux-datatable/issues"
+  },
+  "homepage": "https://github.com/alexandreannic/redux-datatable#readme"
 }

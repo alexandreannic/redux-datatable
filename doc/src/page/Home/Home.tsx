@@ -3,7 +3,7 @@ import {PageTitle} from '../../shared/PageTitle/PageTitle'
 import {Theme} from '@material-ui/core'
 import {makeStyles, useTheme} from '@material-ui/styles'
 import {Page} from 'mui-extension'
-import logo from '../../../asset/redux-datatable.png'
+import logo from '../../asset/redux-datatable.png'
 import classNames from 'classnames'
 
 const useStyles = makeStyles((t: Theme) => ({
