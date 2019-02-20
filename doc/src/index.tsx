@@ -27,7 +27,7 @@ import {muiTheme} from './core/theme/mui-theme'
 import {App} from './App'
 import {Provider} from 'react-redux'
 import {store} from './core/redux/store'
-// import MuiThemeProviderHook from '@material-ui/styles/ThemeProvider'
+import MuiThemeProviderHook from '@material-ui/styles/ThemeProvider'
 
 const Root = () => {
   const isDarkTheme = useTheme()
@@ -35,9 +35,9 @@ const Root = () => {
   const theme = createMuiTheme(muiTheme(isDarkTheme))
   return (
     <MuiThemeProvider theme={theme}>
-      {/*<MuiThemeProviderHook theme={theme}>*/}
+      <MuiThemeProviderHook theme={theme}>
         <App/>
-      {/*</MuiThemeProviderHook>*/}
+      </MuiThemeProviderHook>
     </MuiThemeProvider>
   )
 }
