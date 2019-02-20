@@ -1,7 +1,7 @@
 import {applyMiddleware, combineReducers, compose, createStore} from 'redux'
 import thunk from 'redux-thunk'
 import {IUser} from '../type/user'
-import datatableReducer from '../../../../src/Datatable/redux/datatableReducer'
+import {datatableReducer} from '@alexandreannic/redux-datatable'
 import {SIMPLE_DATATABLE} from '../../example/SimpleDatatable/SimpleDatatable'
 import {TOOLBAR_DATATABLE} from '../../example/ToolbarDatatable/ToolbarDatatable'
 import {EXPENDABLE_DATATABLE} from '../../example/ExpendableDatatable/ExpendableDatatable'

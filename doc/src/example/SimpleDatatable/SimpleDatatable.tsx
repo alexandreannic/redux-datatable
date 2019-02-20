@@ -1,21 +1,21 @@
 import * as React from 'react'
 import {Icon, TableCell} from '@material-ui/core'
-import {Datatable, DatatableRow, DatatableBody, DatatableHead, DatatableSort} from '../../../../src/Datatable/index'
+import {Datatable, DatatableBody, DatatableHead, DatatableRow, DatatableSort} from '@alexandreannic/redux-datatable'
 import {fetchUsers} from '../../core/redux/userAction'
 
-export const EXPENDABLE_DATATABLE = 'expendableDatatable'
+export const SIMPLE_DATATABLE = 'simpleDatatable'
 
-const ExpendableDatatable = () => {
+const SimpleDatatable = () => {
   return (
     <Datatable
-      name={EXPENDABLE_DATATABLE}
-      action={fetchUsers(EXPENDABLE_DATATABLE)}
+      name={SIMPLE_DATATABLE}
+      action={fetchUsers(SIMPLE_DATATABLE)}
       style={{border: `1px solid rgba(0, 0, 0, 0.12)`, borderRadius: 4,}}>
       <DatatableHead>
         <DatatableSort name="createdAt">Date</DatatableSort>
-        <DatatableSort name="firstName">First name</DatatableSort>
+        <DatatableSort>First name</DatatableSort>
         <DatatableSort name="lastName">Last name</DatatableSort>
-        <DatatableSort name="phone">Phone</DatatableSort>
+        <DatatableSort name="score">Score</DatatableSort>
         <DatatableSort name="status">Status</DatatableSort>
       </DatatableHead>
       <DatatableBody renderRow={renderRow}/>
@@ -24,19 +24,15 @@ const ExpendableDatatable = () => {
 }
 
 const renderRow = u => (
-  <DatatableRow expendedRow={renderExpendedRow(u)}>
+  <DatatableRow>
     <TableCell>{new Date(u.createdAt).toLocaleDateString()}</TableCell>
     <TableCell>{u.firstName}</TableCell>
     <TableCell>{u.lastName}</TableCell>
-    <TableCell>{u.phone}</TableCell>
+    <TableCell>{u.score}</TableCell>
     <TableCell>
       {u.validated ? <Icon style={{color: 'green'}}>check</Icon> : <Icon style={{color: 'red'}}>block</Icon>}
     </TableCell>
   </DatatableRow>
 )
 
-const renderExpendedRow = u => (
-  <div>{u.firstName}</div>
-)
-
-export default ExpendableDatatable
+export default SimpleDatatable

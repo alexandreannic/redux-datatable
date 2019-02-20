@@ -1,4 +1,4 @@
-import {PAGINATE_} from '../../../../src/Datatable/redux/datatableAction'
+import {PAGINATE_} from '@alexandreannic/redux-datatable'
 import {getUserFromApi} from '../api/userApi'
 import {UserCriteria} from '../type/userCriteria'
 

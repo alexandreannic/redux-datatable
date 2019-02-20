@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {Checkbox, createStyles, Icon, TableCell, TableRow, withStyles} from '@material-ui/core'
-import {Datatable, DatatableBody, DatatableHead, DatatableRow, DatatableSort, PaginateAction} from '../../../../src/Datatable/index'
+import {Datatable, DatatableBody, DatatableHead, DatatableRow, DatatableSort, PaginateAction} from '@alexandreannic/redux-datatable'
 import {UserGender} from '../../core/type/user'
 import {fetchUsers} from '../../core/redux/userAction'
 import {connect} from 'react-redux'
